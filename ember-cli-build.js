@@ -5,6 +5,27 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     // Add options here
+	lessOptions: {
+		paths: [
+  		'bower_components/semantic-ui',
+  		'node_modules/ui-lab'
+		]
+	 },
+    SemanticUI: {
+				css: false,
+				javascript: true,
+				fonts: true
+			}
+  });
+
+app.import({
+    development: app.bowerDirectory + '/Squire/build/squire-raw.js',
+    production: app.bowerDirectory + '/Squire/build/squire.js'
+  });
+
+app.import({
+    development: app.bowerDirectory + '/semantic-dateTimePicker/src/js/bootstrap-datetimepicker.js',
+    production: app.bowerDirectory + '/semantic-dateTimePicker/build/js/bootstrap-datetimepicker.min.js'
   });
 
   // Use `app.import` to add additional libraries to the generated

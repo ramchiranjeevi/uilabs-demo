@@ -29,12 +29,20 @@
     "ember-cli-htmlbars-inline-precompile": "^0.3.1",
     "ember-cli-ic-ajax": "0.2.4",
     "ember-cli-inject-live-reload": "^1.3.1",
+    "ember-cli-less": "^1.3.3",
+    "ember-cli-moment-shim": "1.0.0",
     "ember-cli-qunit": "^1.0.4",
     "ember-cli-release": "0.2.8",
     "ember-cli-sri": "^1.2.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-data": "1.13.15",
     "ember-disable-proxy-controllers": "^1.0.1",
-    "ember-export-application-global": "^1.0.4"
+    "ember-export-application-global": "^1.0.4",
+    "ember-i18n": "4.1.2",
+    "ember-moment": "4.1.0",
+    "moment": "2.11.2",
+    "moment-timezone": "0.5.0",
+    "semantic-ui-ember": "0.9.3",
+    "ui-lab": "git+http://git@git/eventz/ui-lab.git#a839e799e001bbc421cb31fd857fc5bba4485532"
   }
 }
