@@ -12,8 +12,9 @@
     "jquery": "1.11.3",
     "loader.js": "ember-cli/loader.js#3.4.0",
     "qunit": "~1.20.0",
+    "roboto-fontface": "~0.4.3",
     "semantic-ui": "^2.1.8",
     "Squire": "squire-rte#~1.4.0",
-    "semantic-dateTimePicker": "https://github.com/akila1996/bootstrap-datetimepicker.git#v4.14.31" 
+    "semantic-dateTimePicker": "https://github.com/akila1996/bootstrap-datetimepicker.git#v4.14.31"
   }
 }

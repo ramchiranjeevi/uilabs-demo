@@ -16,7 +16,18 @@ module.exports = function(defaults) {
 				javascript: true,
 				fonts: true
 			}
-  });
+  }),
+  mergeTrees = require('broccoli-merge-trees'),
+  pickFiles = require('broccoli-static-compiler'),
+  trees = [];
+
+  trees.push(
+  pickFiles('bower_components/roboto-fontface/', {
+    srcDir: '/',
+    files: ['fonts/*.*', 'css/*.css'],
+    destDir: '/assets/themes/default/assets/'
+  })
+);
 
 app.import({
     development: app.bowerDirectory + '/Squire/build/squire-raw.js',
@@ -28,6 +39,7 @@ app.import({
     production: app.bowerDirectory + '/semantic-dateTimePicker/build/js/bootstrap-datetimepicker.min.js'
   });
 
+	trees.push(app.toTree());
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
@@ -41,5 +53,5 @@ app.import({
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  return app.toTree();
+  	return mergeTrees(trees, {overwrite: true});
 };
