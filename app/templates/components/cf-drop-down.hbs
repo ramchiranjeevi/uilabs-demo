@@ -1,0 +1,7 @@
+<ul class='cf-dd cf-dd-list {{class_name}}'>
+        {{#each model as |item|}}
+                <li>
+                        <span {{action 'change' item}}>{{item.value}}</span>
+                </li>
+        {{/each}}
+</ul>

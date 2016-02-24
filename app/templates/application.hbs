@@ -1,4 +1,18 @@
-<h2 id="title">Welcome to Ember</h2>
-{{#link-to "components-demo" class="item"}}Components{{/link-to}}
+<!-- <h2 id="title">Welcome to Ember</h2>
+{{#link-to "components-demo" class="item"}}Components{{/link-to}} -->
 
-{{outlet}}
+<div class="ui grid">
+    <div class="four wide column">
+        <div class="ui vertical fluid tabular menu">
+            {{#link-to 'selection' class='item'}} Selection {{/link-to}}
+            {{#link-to 'foldertree' class='item'}} Folder Tree {{/link-to}}
+            {{#link-to 'foldertree.reopen' class='item'}} Folder Tree (Reopen) {{/link-to}}
+            {{#link-to 'customfields' class='item'}} Custom Fields {{/link-to}}
+        </div>
+    </div>
+    <div class="twelve wide stretched column">
+        <div class="ui segment">
+            {{outlet}}
+        </div>
+    </div>
+</div>

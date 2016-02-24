@@ -1,0 +1,20 @@
+
+{{#if menuItem.arrowClass}}
+  <div class="ui dropdown item">
+   {{menuItem.name}}
+    <i class="dropdown icon"></i>
+   {{#if menuItem.children.length}}
+     <div class="menu transition" id="submenudiv" style="display:none">
+       {{#each subMenuObj as | item |}}
+          <a class="item"> {{item.subname}}
+            <i class="icon" style="color:#949191;font-size:15px;padding:2px 0px 0px 35px">{{item.type}}</i>
+          </a>
+       {{/each}}
+     </div>
+    {{/if}}
+ </div>
+{{else}}
+    <a class="item">
+      {{menuItem.name}}
+    </a>
+{{/if}}

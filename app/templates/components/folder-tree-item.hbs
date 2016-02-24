@@ -1,0 +1,12 @@
+{{#if folderItem.is_myfolder}}
+    <span class="my-folder-icon"></span>
+{{else}}
+    <span class="icon-space {{if folderItem.subfolder 'subfolder-icon'}} {{if folderItem.is_opened 'open-tree'}}" {{action "openSubFolder"}}></span>
+{{/if}}
+<label class="each-item-label">
+    <input type="radio" name="folder-item" checked="{{if folderItem.selected 'checked'}}" />
+    <span class="res_name_space"> {{folderItem.res_name}} </span>
+</label>
+{{#if folderItem.children.length}}
+    {{folder-tree nameOfComponent=nameOfComponent folderTreeList=folderItem.children}}
+{{/if}}
