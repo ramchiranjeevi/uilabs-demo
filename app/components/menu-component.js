@@ -5,6 +5,7 @@ export default Ember.Component.extend({
   subMenuObj : [],
 
   mouseMove( event ){
+    var self = this;
     event.stopPropagation();
     var subMenus = this.get('menuItem.children');
     this.set('subMenuObj', subMenus);
