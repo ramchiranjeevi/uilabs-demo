@@ -6,21 +6,22 @@ export default Ember.Component.extend({
 
 
   mouseMove( event ){
+    var self = this;
     event.stopPropagation();
     var subMenus = this.get('menuItem.children');
     this.set('subMenuObj', subMenus);
     if(subMenus.length)
     {
-      $(".ui.dropdown.item").addClass("active visible");
-      $(".ui.dropdown.item .menu.transition" ).removeClass("hidden");
-      $(".ui.dropdown.item .menu.transition").addClass("visible");
-      $('#submenudiv').css({'position': 'absolute', 'display': 'block'});
+      self.$(".ui.dropdown.item").addClass("active visible");
+      self.$(".ui.dropdown.item .menu.transition" ).removeClass("hidden");
+      self.$(".ui.dropdown.item .menu.transition").addClass("visible");
+      self.$('#submenudiv').css({'position': 'absolute', 'display': 'block'});
     }
     else {
-      $( ".ui.dropdown.item").removeClass("active visible");
-      $( ".ui.dropdown.item .menu.transition" ).removeClass("visible");
-      $(".ui.dropdown.item .menu.transition" ).addClass("hidden");
-      $('#submenudiv').css({'display': 'none'});
+      self.$( ".ui.dropdown.item").removeClass("active visible");
+      self.$( ".ui.dropdown.item .menu.transition" ).removeClass("visible");
+      self.$(".ui.dropdown.item .menu.transition" ).addClass("hidden");
+      self.$('#submenudiv').css({'display': 'none'});
     }
   }
 });

@@ -45,6 +45,6 @@
     "moment": "2.11.2",
     "moment-timezone": "0.5.0",
     "semantic-ui-ember": "git+https://github.com/Semantic-Org/Semantic-UI-Ember.git#b41513251cc7253fc25000af52cc2bcbd2ed986b",
-    "ui-lab": "git+http://git@git/eventz/ui-lab.git#a839e799e001bbc421cb31fd857fc5bba4485532"
+    "ui-lab": "git+http://git@git/eventz/ui-lab.git"
   }
 }
