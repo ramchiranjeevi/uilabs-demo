@@ -3,23 +3,19 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 
   subMenuObj : [],
+  isShowSubMenu: false,
 
   mouseMove( event ){
     var self = this;
     event.stopPropagation();
-    var subMenus = this.get('menuItem.children');
-    this.set('subMenuObj', subMenus);
+    var subMenus = self.get('menuItem.children');
+    self.set('subMenuObj', subMenus);
+    var isShow = self.get('isShowSubMenu');
     if(subMenus.length){
-      self.$(".ui.dropdown.item").addClass("active visible");
-      self.$(".ui.dropdown.item .menu.transition" ).removeClass("hidden");
-      self.$(".ui.dropdown.item .menu.transition").addClass("visible");
-      self.$('#submenudiv').css({'position': 'absolute', 'display': 'block'});
+      self.set('isShowSubMenu', true);
     }
     else {
-      self.$( ".ui.dropdown.item").removeClass("active visible");
-      self.$( ".ui.dropdown.item .menu.transition" ).removeClass("visible");
-      self.$(".ui.dropdown.item .menu.transition" ).addClass("hidden");
-      self.$('#submenudiv').css({'display': 'none'});
+      self.set('isShowSubMenu', true);
     }
   }
 });
