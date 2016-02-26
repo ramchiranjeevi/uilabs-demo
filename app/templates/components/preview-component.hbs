@@ -1,0 +1,56 @@
+{{#each previewItems as |model|}}
+<div {{action 'showpreview' model}}>{{model.res_name}}</div> <br/>
+{{/each}}
+{{#if can_preview}}
+  <div id="preview">
+    {{#if previewObj.has_prev}}
+    <div  class="left_nav" {{action 'previous'}}>Previous</div>
+    {{/if}}
+    <div class="previewarea">
+      <div>
+      {{#if previewObj.is_image}}
+          {{previews/image-component}}
+      {{/if}}
+    </div>
+
+    <div>
+      {{#if previewObj.is_pdf}}
+          {{previews/pdf-component}}
+      {{/if}}
+    </div>
+
+        <div>
+      {{#if previewObj.is_audio}}
+          {{previews/audio-component}}
+      {{/if}}
+    </div>
+
+    <div>
+      {{#if previewObj.is_video}}
+          {{previews/video-component}}
+      {{/if}}
+    </div>
+
+    <div>
+      {{#if previewObj.is_zip}}
+          {{previews/zip-component}}
+      {{/if}}
+    </div>
+
+    <div>
+      {{#if previewObj.is_developer}}
+          {{previews/developer-component}}
+      {{/if}}
+    </div>
+
+    <div>
+      {{#if previewObj.is_writer}}
+          {{previews/writer-component}}
+      {{/if}}
+    </div>
+    </div>
+    {{#if previewObj.has_next}}
+    <div class="next_nav" {{action 'next'}}>Next</div>
+    {{/if}}
+  </div>
+{{/if}}
