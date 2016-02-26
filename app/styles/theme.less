@@ -1,0 +1,88 @@
+@sideNavBarBGColor: #2b333d;
+@headerLogoPartColor: #333c47;
+@sideNavBarTextColor: #54565b;
+
+body{
+    margin: 0px;
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+ul{
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+ul > li {
+    width: 230px;
+}
+::selection {
+    background: none;
+    color: inherit;
+}
+*, *:before, *:after {
+    box-sizing: initial;
+}
+.header-container{
+    padding: 0 20px;
+    z-index: 100;
+    margin-bottom: 0;
+    min-height: 58px;
+    background-color: @whiteColor;
+    border: none;
+}
+.sidebar-wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    overflow: auto;
+    left: 0;
+    background: @sideNavBarBGColor;
+    width: 230px;
+    box-sizing: border-box;
+    font-size: 15px;
+    line-height: 1.42857143;
+    color: #sideNavBarTextColor;
+}
+.header-logo {
+    background-color: @headerLogoPartColor;
+    border-color: @headerLogoPartColor;
+    height: 58px;
+    width: 230px;
+    overflow: hidden;
+}
+.header-logo a {
+    color: #c5d0de;
+    float: left;
+    height: 58px;
+    width: 100%;
+    padding: 10px 22px;
+    overflow: hidden;
+    outline: none;
+    box-sizing: border-box;
+}
+.header-logo a .gitlab-text-container h3 {
+    float: left;
+    margin: 0;
+    font-size: 19px;
+    line-height: 41px;
+    font-weight: normal;
+}
+.content-wrapper {
+    position: absolute;
+    padding: 60px 20px 20px 60px;
+    right: 0px;
+    background: #EAEBEC;
+    left: 230px;
+    bottom: 0;
+    top: 0;
+}
+.nav-sidebar > li > a {
+    padding: 7px 15px;
+    color: #c5d0de;
+    display: block;
+    text-decoration: none;
+    padding-left: 22px;
+    outline: none;
+}
+.nav-sidebar > li > a:hover, .nav-sidebar > li > a.active {
+    background: #24272d;
+}

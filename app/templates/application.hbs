@@ -1,1 +1,52 @@
-{{outlet}}
+<!-- <h2 id="title">Welcome to Ember</h2> -->
+<!-- <header class="header-container">
+    <div class="container-fluid">
+    </div>
+</header> -->
+<div class="sidebar-wrapper">
+    <div class="header-logo">
+        <a >
+            <div class="gitlab-text-container"><h3>Docs Components Demo</h3></div>
+        </a>
+    </div>
+    <ul class="nav-sidebar">
+        <li class="home">
+            {{#link-to 'selection' }}
+                <span> Selection </span>
+            {{/link-to}}
+        </li>
+        <li>
+            {{#link-to 'foldertree' }}
+                <span> Folder Tree </span>
+            {{/link-to}}
+        </li>
+        <li>
+            {{#link-to 'foldertree.reopen' }}
+                <span> Folder Tree (Reopen) </span>
+            {{/link-to}}
+        </li>
+        <li>
+            {{#link-to 'menu' }}
+                <span> Menus </span>
+            {{/link-to}}
+        </li>
+        <li>
+            {{#link-to 'customfields' }}
+                <span> Custom Fields </span>
+            {{/link-to}}
+        </li>
+        <li>
+            {{#link-to 'rename' }}
+                <span>Rename Action</span>
+            {{/link-to}}
+        </li>
+        <li>
+            {{#link-to 'tooltip' }}
+                <span>Tool-Tip</span>
+            {{/link-to}}
+        </li>
+    </ul>
+</div>
+<div class="content-wrapper">
+    {{outlet}}
+</div>

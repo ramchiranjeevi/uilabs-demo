@@ -17,6 +17,7 @@ Router.map(function() {
   this.route('customfields');
   this.route('tooltip');
   this.route('preview');
+  this.route('notification');
 });
 
 export default Router;
