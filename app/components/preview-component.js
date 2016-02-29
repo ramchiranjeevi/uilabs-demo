@@ -55,7 +55,7 @@ export default Ember.Component.extend({
         if (currentIndex > 0) {
             this.set('previewObj.has_prev', true); // No I18N
           }
-          if (currentIndex == (c_previewObj.length-1)) {
+          if (currentIndex === (c_previewObj.length-1)) {
               this.set('previewObj.has_next', false); // No I18N
             }
             if (currentIndex < (c_previewObj.length-1)) {
@@ -67,7 +67,7 @@ export default Ember.Component.extend({
         if (currentIndex > 0) {
             this.set('previewObj.has_prev', true); // No I18N
           }
-          if (currentIndex == (c_previewObj.length-1)) {
+          if (currentIndex === (c_previewObj.length-1)) {
               this.set('previewObj.has_next', false); // No I18N
             }
             if (currentIndex < (c_previewObj.length-1)) {
@@ -92,7 +92,7 @@ export default Ember.Component.extend({
       if (currentIndex > 0) {
           this.set('previewObj.has_prev', true); // No I18N
         }
-        if (currentIndex == (c_previewObj.length-1)) {
+        if (currentIndex === (c_previewObj.length-1)) {
             this.set('previewObj.has_next', false); // No I18N
           }
           if (currentIndex < (c_previewObj.length-1)) {

@@ -46,6 +46,6 @@ export default Ember.Route.extend({
                     "is_active":false,
                     "id":7
                   }),
-               ]
+               ];
  }
 });
