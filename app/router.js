@@ -18,6 +18,7 @@ Router.map(function() {
   this.route('tooltip');
   this.route('preview');
   this.route('notification');
+  this.route('progressbar');
 });
 
 export default Router;
