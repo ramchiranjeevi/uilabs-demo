@@ -7,13 +7,14 @@ export default Ember.Component.extend({
     this.$().focus();
   },
 
-  keyDown: function (event,old_name) {
+  keyDown: function (event) {
 
     var new_name = this.get('renameList.res_name');
 
 
     if(new_name.length < 1){
       alert('Name is Empty, Please Type Something');
+      // console.log(t('label.ok'));
       this.$().focus();
     }
 
