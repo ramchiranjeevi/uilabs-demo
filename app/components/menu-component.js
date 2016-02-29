@@ -22,23 +22,8 @@ export default Ember.Component.extend({
     this.send("showMenusAction", menuObj );
   },
 
-  //MOUSEMOVE EVENT ACTION HANDLER
-  // mouseMove( event ){
-  //   var self = this;
-  //   event.stopPropagation();
-  //   var subMenus = self.get('menuItem.children');
-  //   self.set('subMenuObj', subMenus);
-  //   //var isShow = self.get('isShowSubMenu');
-  //   if(subMenus.length){
-  //     self.set('isShowSubMenu', true);
-  //   }
-  //   else {
-  //     self.set('isShowSubMenu', false);
-  //   }
-  // },
-
   "actions": {
-    showMenusAction( menus ){
+    showMenusAction(){
       //  console.log(menus);
       this.set("isShowMenu", true);
       //  console.log(menus.menuItemss);
