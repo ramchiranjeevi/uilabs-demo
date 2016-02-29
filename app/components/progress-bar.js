@@ -9,6 +9,8 @@ export default Ember.Component.extend({
     className: "",
     showPercentInBar: false,
     classNameBindings: [ "sizeClass", "colorClass", "customClass" ],
+    attributeBindings: ["dataPercent:data-percent"],
+    dataPercent: Ember.computed.alias('value'),
     sizeClass: Ember.computed.alias('size'),
     colorClass: Ember.computed.alias('color'),
     customClass: Ember.computed.alias('className')
