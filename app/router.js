@@ -15,9 +15,13 @@ Router.map(function() {
   this.route('menu');
   this.route('rename');
   this.route('customfields');
+<<<<<<< Updated upstream
   this.route('tooltip');
   this.route('preview');
   this.route('notification');
+=======
+  this.route('menuselection');
+>>>>>>> Stashed changes
 });
 
 export default Router;
