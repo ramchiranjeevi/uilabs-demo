@@ -7,6 +7,16 @@ export default Ember.Component.extend({
   isShowMenu : false,
   isShowSubMenu: false,
 
+  //CLICK EVENT ACTION HANDLER
+  click(event){
+    var self = this;
+    if(self.get("isShowMenu"))
+    {
+      self.set("isShowMenu", false);
+      return;
+    }
+  },
+
   // CONTEXTMENU EVENT ACTION HANDLER
   contextMenu(event){
     var self = this;
