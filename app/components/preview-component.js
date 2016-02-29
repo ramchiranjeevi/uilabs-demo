@@ -1,7 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  previewObj:{'is_image':false,'is_pdf':false,'is_audio':false,'is_video':false,'is_zip':false,'is_developer':false,'is_writer':false,'has_prev':true,'has_next':true},
+  previewObj:{'is_image':false,'is_pdf':false,'is_audio':false,'is_video':false,'is_zip':false,'is_developer':false,'is_writer':false,'has_prev':true,'has_next':true,'preview_url':''},
+  currentPreviewItem:{'isLoading':false},
   currentPreviewIndex:0,
   actions:{
     showpreview:function(currentItem)
@@ -76,6 +77,7 @@ export default Ember.Component.extend({
 
         var currentItem = c_previewObj[currentIndex];
         this.set('currentPreviewIndex',currentIndex);
+        this.set('currentItem',currentItem);
         this.send('loadpreview',currentItem.ftype);
     },
     previous:function()
@@ -100,6 +102,7 @@ export default Ember.Component.extend({
             }
       var currentItem = c_previewObj[currentIndex];
       this.set('currentPreviewIndex',currentIndex);
+      this.set('currentItem',currentItem);
       this.send('loadpreview',currentItem.ftype);
     },
     loadpreview:function(ftype)
@@ -108,6 +111,7 @@ export default Ember.Component.extend({
       if(ftype === "image")
       {
           this.set('previewObj.is_image',true);
+          this.set('previewObj.preview_url','https://download.zoho.com/paramdownloadservlet?x-service=EX&x-encoding=gzip&x-mode=4&x-resource_id=2bnqs25ff2ed8cbe94b658756db6806698079&event-id=2bnqs25ff2ed8cbe94b658756db6806698079_770x515&x-w=770&x-h=515');
       }
       else if(ftype === "pdf")
       {

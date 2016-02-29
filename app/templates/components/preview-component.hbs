@@ -7,12 +7,14 @@
     <div  class="left_nav" {{action 'previous'}}>Previous</div>
     {{/if}}
     <div class="previewarea">
-      <div>
-      {{#if previewObj.is_image}}
-          {{previews/image-component}}
-      {{/if}}
-    </div>
+      <div class="{{if currentPreviewItem.isLoading 'show_elm' 'hide_elm'}}">Loading...</div>
 
+      {{#if previewObj.is_image}}
+         <div class="{{if currentPreviewItem.isLoading 'hide_elm' 'show_elm'}}">
+          {{previews/image-component src=previewObj.preview_url}}
+          </div>
+      {{/if}}
+      
     <div>
       {{#if previewObj.is_pdf}}
           {{previews/pdf-component}}
