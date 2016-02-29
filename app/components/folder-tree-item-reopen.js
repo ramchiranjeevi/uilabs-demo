@@ -6,6 +6,6 @@ export default FolderTreeItemComponent.extend({
     layout: layout,
     doubleClick( event ){
         event.stopPropagation();
-        this.send( "openSubFolder" );
+        this.send( "toggleSubFolder" );
     }
 });

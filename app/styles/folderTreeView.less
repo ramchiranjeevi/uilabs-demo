@@ -18,7 +18,7 @@
     cursor: pointer;
 }
 .each-item-label input[type="radio"] {
-    vertical-align: bottom;
+    vertical-align: top;
     margin: 3px 0.5ex;
 }
 .icon-space{
@@ -48,15 +48,15 @@
     width: 100%;
     box-sizing: border-box;
 }
-.subfolder-icon+.each-item-label+ul{
-    display: none;
-}
 .open-tree{
     transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
 }
-.subfolder-icon.open-tree+.each-item-label+ul{
+.show{
     display: block;
+}
+.hide{
+    display: none;
 }
