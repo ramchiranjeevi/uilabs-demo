@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import MenuMixin from '../mixins/menumixin';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(MenuMixin, {
 
   menuObj: [],
   subMenuObj : [],
@@ -22,7 +23,7 @@ export default Ember.Component.extend({
     var self = this;
     event.preventDefault();
     event.stopPropagation();
-    var menuObj = self.get('menuItem.menuItems');
+    var menuObj = self.get('menuItem');
     if(self.get("isShowMenu"))
     {
       self.set("isShowMenu", false);
@@ -32,20 +33,21 @@ export default Ember.Component.extend({
     this.send("showMenusAction", menuObj );
   },
 
-  //MOUSEMOVE EVENT ACTION HANDLER
-  // mouseMove( event ){
-  //   var self = this;
-  //   event.stopPropagation();
-  //   var subMenus = self.get('menuItem.children');
-  //   self.set('subMenuObj', subMenus);
-  //   //var isShow = self.get('isShowSubMenu');
-  //   if(subMenus.length){
-  //     self.set('isShowSubMenu', true);
-  //   }
-  //   else {
-  //     self.set('isShowSubMenu', false);
-  //   }
-  // },
+  mouseMove( event ){
+    var self = this;
+    event.stopPropagation();
+    var subMenus = this.get('menuItem.children');
+
+  //  console.log(this.get('isShowSubMenu'));
+    if(subMenus.length){
+      self.set('subMenuObj', subMenus);
+      self.set('isShowSubMenu', true);
+    }
+    else {
+      self.set('subMenuObj', []);
+      self.set('isShowSubMenu', false);
+    }
+  },
 
   "actions": {
     showMenusAction(){
