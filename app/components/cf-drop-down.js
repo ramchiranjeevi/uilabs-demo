@@ -8,7 +8,7 @@ export default Ember.Component.extend({
   selected_value: 'Single line text',
 
   didInsertElement: function(){
-    var self = this,
+    var self = this;
     self.get('_controller').set('selected_value', self.get('selected_value'));
   },
 
