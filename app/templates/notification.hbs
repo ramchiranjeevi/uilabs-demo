@@ -1,0 +1,33 @@
+<div class="ui message">
+
+  <b>Notification Message:-</b>
+  <br>
+  <br>
+    <div class="ui input focus">
+      {{input type="text" data-toggle="tooltip" data-placement="bottom"}}
+    </div>
+  <br>
+  <br>
+    <b>Notification Type:-</b>
+  <br>
+  <br>
+  <select class="ui dropdown active">
+    <option value="">Success</option>
+    <option value="0">Error</option>
+    <option value="1">Warning</option>
+    <option value="2">Regular</option>
+  </select>
+
+  <br>
+  <br>
+  <br>
+
+  {{notification-type class="ui primary button" label="ShowNotification"}}
+
+    <br>
+    <br>
+    <br>
+
+  <div class="showdiv" ></div>
+
+</div>
