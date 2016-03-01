@@ -19,6 +19,7 @@ Router.map(function() {
   this.route('preview');
   this.route('notification');
   this.route('progressbar');
+  this.route('spinner');
 });
 
 export default Router;
