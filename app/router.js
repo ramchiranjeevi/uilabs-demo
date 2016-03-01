@@ -20,6 +20,7 @@ Router.map(function() {
   this.route('notification');
   this.route('progressbar');
   this.route('spinner');
+  this.route('component-action-example');
 });
 
 export default Router;

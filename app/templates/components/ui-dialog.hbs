@@ -1,0 +1,13 @@
+<div class="dialog-container">
+    <div class="header">
+        <span>Title</span>
+    </div>
+    <div class="content">
+        {{yield statusObject}}
+    </div>
+    <div class="button-container">
+        <button class="ui green button" {{action 'success'}}>OK</button>
+        <button class="ui button" {{action 'cancel'}}>Cancel</button>
+    </div>
+
+</div>

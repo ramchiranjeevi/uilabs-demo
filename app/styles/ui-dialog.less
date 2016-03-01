@@ -1,0 +1,44 @@
+.dialog-container{
+    height: 250px;
+    width: 350px;
+    border: 1px solid @greyColor;
+    background: @whiteColor;
+    box-shadow: 0px 3px 30px @darkGreyColor;
+    display: inline-block;
+}
+.dialog-container > .header, .dialog-container > .button-container {
+    height: 40px;
+}
+.dialog-container > .content {
+    height: 170px;
+    padding: 15px 40px;
+    box-sizing: border-box;
+}
+.header > span {
+    font-size: 19px;
+    padding: 10px;
+    display: inline-block;
+}
+.button-container {
+    text-align: right;
+}
+.button-container {
+    margin-right: 20px;
+}
+.button-container > button {
+    margin: 0px 4px !important;
+}
+.error.message{
+    white-space: nowrap;
+    color: rgb(250, 93, 51);
+}
+.success.message{
+    white-space: nowrap;
+    color: rgb(51, 250, 77);
+}
+.ui.input.success input {
+    background-color: #FFF6F6;
+    border-color: #b8e0b5;
+    color: #439f38;
+    box-shadow: none;
+}

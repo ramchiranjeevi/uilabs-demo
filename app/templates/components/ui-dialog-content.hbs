@@ -1,0 +1,24 @@
+<div class="inner-container">
+    <form class="form-element">
+        <div class="ui left corner labeled input {{statusClassOne}}">
+            {{input type="text" placeholder="Field One..." value=valueOne}}
+            <div class="ui left corner label">
+                <i class="asterisk icon"></i>
+            </div>
+        </div>
+        {{#if statusMessageOne}}
+            <span class="message {{statusClassOne}}">{{statusMessageOne}}</span>
+        {{/if}}
+        <br>
+        <br>
+        <div class="ui left corner labeled input {{statusClassTwo}}">
+            {{input type="text" placeholder="Field Two..." value=valueTwo}}
+            <div class="ui left corner label">
+                <i class="asterisk icon"></i>
+            </div>
+        </div>
+        {{#if statusMessageTwo}}
+            <span class="message {{statusClassTwo}}">{{statusMessageTwo}}</span>
+        {{/if}}
+    </form>
+</div>
