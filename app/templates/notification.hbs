@@ -4,30 +4,32 @@
   <br>
   <br>
     <div class="ui input focus">
-      {{input type="text" data-toggle="tooltip" data-placement="bottom"}}
+      {{input type="text" data-toggle="tooltip" data-placement="bottom" value=defaultvalue}}
     </div>
   <br>
   <br>
     <b>Notification Type:-</b>
   <br>
   <br>
-  <select class="ui dropdown active">
-    <option value="">Success</option>
-    <option value="0">Error</option>
-    <option value="1">Warning</option>
-    <option value="2">Regular</option>
-  </select>
-
-  <br>
   <br>
   <br>
 
-  {{notification-type class="ui primary button" label="ShowNotification"}}
+  <!-- {{notification-type id="1" class="ui green button" label="Success Message"}}
+  {{notification-type id="2" class="ui orange button" label="Warning Message"}}
+  {{notification-type id="3" class="ui red button" label="Error Message"}}
+  {{notification-type id="4" class="ui primary button" label="Regular Message"}} -->
+
+  <!-- <button class="ui red  button">Error</button>
+  <button class="ui orange  button">Warning</button>
+  <button class="ui teal  button">Regular</button>
+  <button class="ui green  button">Success</button> -->
 
     <br>
     <br>
     <br>
 
-  <div class="showdiv" ></div>
+
 
 </div>
+  <div class="Ndiv">{{defaultvalue}}</div>
+<!-- {{notification-selector label=""}} -->
