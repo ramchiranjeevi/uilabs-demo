@@ -18,7 +18,7 @@ export default Ember.Mixin.create({
 
     showContextMenus(){
       var _self = this;
-    //  alert('pp');
+      //  alert('pp');
       var isContextMenu = _self.get('isContextMenu');
       if(isContextMenu)
       {
