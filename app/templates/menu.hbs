@@ -4,11 +4,11 @@
   {{menu-component menuItem=item content=item}}
   {{/each}}
 </div>
-<div id="moreMenu" class="moremenudiv" style="margin-top: -453px;margin-left: 370px" >
-  <div {{action 'showMoreMenus'}}>More Menus</div>
+<div id="moreMenu" class="moremenudiv"  {{action 'showMoreMenus'}} style="margin-top: -453px;margin-left: 370px" >
+  <div>More Menus</div>
 </div>
-<div id="contextMenu" class="contextmenudiv" style="margin-top: -35px;margin-left: 666px;">
-  <div {{action "showContextMenus" post on="contextMenu" }} {{action "hideContextMenu" post on="click"}}>Context Menus</div>
+<div id="contextMenu" class="contextmenudiv" {{action "showContextMenus" post on="contextMenu" }} {{action "hideContextMenu" post on="click"}} style="margin-top: -35px;margin-left: 666px;">
+  <div>Context Menus</div>
 </div>
 {{#if isMoreMenu}}
 <div  class="ui vertical menu" style="position: absolute;margin-top: -1px;margin-left: 367px;">
