@@ -12,6 +12,10 @@ export default Ember.Controller.extend({
                   {id: 6, value: "Date & Time" },  // No I18N
                   {id: 7, value: "Yes/No" }, // No I18N
                   {id: 8, value: "Choice" }
+                ],
+
+    yesOrNo_Obj: [ {id: 1, value: 'Yes'}, // No I18N
+                   {id: 2, value: 'No'} // No I18N
                 ]
 
 });

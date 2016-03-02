@@ -1,4 +1,10 @@
 
-<div>Selected Item: {{ ddObj.selected_value }} </div>
+<div>Selected Item: {{ ddObj.selected_value}} </div>
 
-{{cf-drop-down model=field_types }}
+{{cf-drop-down model=field_types def_value='Single line text'}}
+
+{{#if ddObj.yesOrNo}}
+
+  {{cf-drop-down model=yesOrNo_Obj def_value='Yes'}}
+
+{{/if}}

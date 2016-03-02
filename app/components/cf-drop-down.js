@@ -5,6 +5,7 @@ export default Ember.Component.extend({
   ddObj: Ember.inject.service('drop-down'),
 
   tagName: 'div',
+  def_value: '',
   isActive: false,
   classNames: ['ui','selection','dropdown', 'cf-dd'],
 
@@ -17,6 +18,7 @@ export default Ember.Component.extend({
 
     change: function( obj ){
       var self = this;
+      self.set('def_value', obj.value);
       self.get('ddObj').updateVal(obj);
     }
 
