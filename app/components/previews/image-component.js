@@ -5,13 +5,15 @@ export default Ember.Component.extend({
   attributeBindings:['src'],
   didInsertElement:function()
   {
-    var self = this;
-    self.set('parentView.currentPreviewItem.isLoading',true);
-    self.$().off('load').on('load',function()
-    {
+    Em.run.once(this,function(){
+      var self = this;
+      self.set('parentView.currentPreviewItem.isLoading',true);
+      self.$().off('load').on('load',function()
+      {
         self.set('parentView.currentPreviewItem.isLoading',false);
-    }).off('error').on('error',function()
-    {
+      }).off('error').on('error',function()
+      {
+      });
     });
   }
 });
