@@ -1,19 +1,4 @@
-{{#if menuItem.arrowClass}}
-<div class="ui dropdown item {{if isShowSubMenu 'active visible' ''}}">
-  {{menuItem.name}}
-  <i class="dropdown icon"></i>
-  {{#if subMenuObj.length}}
-  <div class="menu {{if isShowSubMenu 'transition visible' 'transition hidden'}}" id="submenudiv" style="display:{{if isShowSubMenu 'block' 'none'}}">
-    {{#each subMenuObj as | item |}}
-    <a class="item"> {{item.subname}}
-      <i class="icon" style="color:#949191;font-size:15px;padding:2px 0px 0px 35px">{{item.type}}</i>
-    </a>
-    {{/each}}
-  </div>
-  {{/if}}
-</div>
-{{else}}
 <a class="item">
   {{menuItem.name}}
+    <i class="{{menuItem.arrowClass}}"></i>
 </a>
-{{/if}}

@@ -11,7 +11,7 @@ export default Ember.Route.extend({
     {'action': 'renameAction', 'name':'Rename', 'children': []},
     {'action': 'duplicateAction', 'name':'Duplicate', 'children': []},
     {'action': 'downloadAction', 'name':'Download', 'children': []},
-    {'action': 'moreAction', 'name': 'More', 'arrowClass':'l-arrow-icon',
+    {'action': 'moreAction', 'name': 'More', 'arrowClass':'dropdown icon',
     'children': [{'action':'readAction', 'subname': 'Read Only' , 'type': '.ro', 'children': []},
     {'action':'readWriteAction', 'subname': 'Read Write' , 'type': '.rw', 'children': []},
     {'action':'coOwnerAction', 'subname': 'Co Owner' , 'type': '.co','children': []},]}];

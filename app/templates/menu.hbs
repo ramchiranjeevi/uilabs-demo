@@ -24,3 +24,15 @@
   {{/each}}
 </div>
 {{/if}}
+
+{{#if isShowSubMenu}}
+<div class="ui dropdown item active visible">
+<div class="menu transition visible" id="submenudiv" style="display:block;">
+  {{#each model as | item |}}
+    {{#each item.children as | children |}}
+      {{submenu-component subMenuItem=children content=children}}
+    {{/each}}
+  {{/each}}
+</div>
+</div>
+{{/if}}
