@@ -4,6 +4,7 @@ export default Ember.Component.extend({
   previewObj:{'is_image':false,'is_pdf':false,'is_audio':false,'is_video':false,'is_zip':false,'is_developer':false,'is_writer':false,'has_prev':true,'has_next':true,'preview_url':''},
   currentPreviewItem:{'isLoading':false},
   currentPreviewIndex:0,
+  classNames:['preview-list-outline'],
   didInsertElement:function()
   {
     return this.$().attr({tabindex:1});
