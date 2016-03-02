@@ -20,7 +20,7 @@ Router.map(function() {
   this.route('notification');
   this.route('progressbar');
   this.route('spinner');
-  this.route('component-action-example');
+  this.route('dialog');
 });
 
 export default Router;

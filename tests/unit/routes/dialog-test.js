@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('route:component-action-example', 'Unit | Route | component action example', {
+moduleFor('route:dialog', 'Unit | Route | dialog', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

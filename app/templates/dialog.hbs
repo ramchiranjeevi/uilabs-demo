@@ -1,0 +1,11 @@
+<div>
+    <button class="ui button green" {{action 'showCreateNewDialog'}}> Create New Folder </button>
+    <button class="ui button blue" {{action 'showUnzipDialog'}}> Unzip </button>
+</div>
+<br>
+<br>
+{{#if showDialog}}
+    {{#ui-dialog dialogObject=dialogObject refObject=referenceObject as | objectRefForChildComponent |}}
+        {{component componentToBeRendered params=objectRefForChildComponent}}
+    {{/ui-dialog}}
+{{/if}}
