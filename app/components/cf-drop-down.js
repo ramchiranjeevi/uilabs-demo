@@ -2,15 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
+  ddObj: Ember.inject.service('drop-down'),
+
   tagName: 'div',
   isActive: false,
   classNames: ['ui','selection','dropdown', 'cf-dd'],
-  selected_value: 'Single line text',
-
-  didInsertElement: function(){
-    var self = this;
-    self.get('_controller').set('selected_value', self.get('selected_value'));
-  },
 
   click: function(){
     var self = this;
@@ -21,8 +17,7 @@ export default Ember.Component.extend({
 
     change: function( obj ){
       var self = this;
-      self.set('selected_value', obj.value);
-      self.get('_controller').set('selected_value', obj.value);
+      self.get('ddObj').updateVal(obj);
     }
 
   }

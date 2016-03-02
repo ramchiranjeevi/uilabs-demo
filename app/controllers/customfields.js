@@ -2,7 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
-  selected_value: '',
+  ddObj: Ember.inject.service('drop-down'),
+
   field_types: [ {id: 1, value: "Single line text" },  // No I18N
                   {id: 2, value: "Multi line text" }, // No I18N
                   {id: 3, value: "Number" }, // No I18N
@@ -12,4 +13,5 @@ export default Ember.Controller.extend({
                   {id: 7, value: "Yes/No" }, // No I18N
                   {id: 8, value: "Choice" }
                 ]
+
 });
