@@ -15,6 +15,23 @@ export default Ember.Component.extend({
       this.set('can_preview',false);
     }
   },
+    keyDown(ev)
+    {
+      if(ev.keyCode === 37) //left arrow
+      {
+            if(this.get('previewObj.has_prev'))
+            {
+              this.send('previous');
+            }
+      }
+      else if(ev.keyCode === 39) //right arrow
+      {
+            if(this.get('previewObj.has_next'))
+            {
+              this.send('next');
+            }
+      }
+    },
   actions:{
     showpreview:function(currentItem)
     {
