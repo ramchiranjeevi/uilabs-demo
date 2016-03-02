@@ -8,7 +8,7 @@ export default Ember.Component.extend({
 
 		if(this.id == "1"){
 				$('.Ndiv').css('background-color', 'green'),
-				$('.Ndiv')  .transition({animation : 'scale',interval  : 200})
+				$('.Ndiv').transition({animation : 'scale',interval  : 200})
 			}
 
 		if(this.id == "2"){
