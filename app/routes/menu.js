@@ -3,18 +3,18 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   model: function() {
     var name = [{'action': 'createfolderAction', 'name':'Create New', 'children': []},
-    {'action': 'OpenAction', 'name':'Open', 'children': []},
-    {'action': 'ShareAction', 'name':'Share', 'children': []},
-    {'action': 'CutAction', 'name':'Cut', 'children': []},
-    {'action': 'CopyAction', 'name':'Copy', 'children': []},
-    {'action': 'PasteAction', 'name':'Paste', 'children': []},
-    {'action': 'RenameAction', 'name':'Rename', 'children': []},
-    {'action': 'DuplicateAction', 'name':'Duplicate', 'children': []},
-    {'action': 'DownloadAction', 'name':'Download', 'children': []},
-    {'action': 'MoreAction', 'name': 'More', 'arrowClass':'l-arrow-icon',
+    {'action': 'openAction', 'name':'Open', 'children': []},
+    {'action': 'shareAction', 'name':'Share', 'children': []},
+    {'action': 'cutAction', 'name':'Cut', 'children': []},
+    {'action': 'copyAction', 'name':'Copy', 'children': []},
+    {'action': 'pasteAction', 'name':'Paste', 'children': []},
+    {'action': 'renameAction', 'name':'Rename', 'children': []},
+    {'action': 'duplicateAction', 'name':'Duplicate', 'children': []},
+    {'action': 'downloadAction', 'name':'Download', 'children': []},
+    {'action': 'moreAction', 'name': 'More', 'arrowClass':'l-arrow-icon',
     'children': [{'action':'readAction', 'subname': 'Read Only' , 'type': '.ro', 'children': []},
     {'action':'readWriteAction', 'subname': 'Read Write' , 'type': '.rw', 'children': []},
-    {'action':'CoOwnerAction', 'subname': 'Co Owner' , 'type': '.co','children': []},]}];
+    {'action':'coOwnerAction', 'subname': 'Co Owner' , 'type': '.co','children': []},]}];
     return name;
   }
 });

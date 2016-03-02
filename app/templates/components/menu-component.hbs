@@ -2,17 +2,15 @@
 <div class="ui dropdown item {{if isShowSubMenu 'active visible' ''}}">
   {{menuItem.name}}
   <i class="dropdown icon"></i>
+  {{#if subMenuObj.length}}
   <div class="menu {{if isShowSubMenu 'transition visible' 'transition hidden'}}" id="submenudiv" style="display:{{if isShowSubMenu 'block' 'none'}}">
-    {{#if subMenuObj.length}}
     {{#each subMenuObj as | item |}}
     <a class="item"> {{item.subname}}
       <i class="icon" style="color:#949191;font-size:15px;padding:2px 0px 0px 35px">{{item.type}}</i>
     </a>
-
     {{/each}}
-    {{/if}}
   </div>
-
+  {{/if}}
 </div>
 {{else}}
 <a class="item">
