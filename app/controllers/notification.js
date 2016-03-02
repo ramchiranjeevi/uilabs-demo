@@ -2,8 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
-  defaultvalue: "Notification",
+  defaultvalue: "Notification"
 
-  is_notify : false;
-  
+
+
 });
