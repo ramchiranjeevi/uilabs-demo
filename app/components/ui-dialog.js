@@ -1,9 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+    
     classNames: ["dialog-container"],
     dialogObject: {},
-    refObject: Ember.Object.create({}),
 
     didInsertElement(){
         if( this.get("dialogObject.height") ){

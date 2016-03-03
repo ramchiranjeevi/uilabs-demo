@@ -21,6 +21,8 @@ Router.map(function() {
   this.route('progressbar');
   this.route('spinner');
   this.route('dialog');
+  this.route('components-path');
+  this.route('service-example');
 });
 
 export default Router;

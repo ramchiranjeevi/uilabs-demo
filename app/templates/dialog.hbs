@@ -5,7 +5,7 @@
 <br>
 <br>
 {{#if showDialog}}
-    {{#ui-dialog dialogObject=dialogObject refObject=referenceObject as | objectRefForChildComponent |}}
-        {{component componentToBeRendered params=objectRefForChildComponent}}
+    {{#ui-dialog dialogObject=dialogObject}}
+        {{component componentToBeRendered}}
     {{/ui-dialog}}
 {{/if}}

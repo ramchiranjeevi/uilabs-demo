@@ -1,0 +1,57 @@
+''<h4> Single Component </h4>
+<div class="ui steps">
+    <a class="step">
+        <div class="content">
+            <div class="title">Parent Component</div>
+            <div class="description">Get any access just by passing params to component. </div>
+        </div>
+    </a>
+</div>
+<br>
+<code>
+    &#123;&#123;parent-component param1&#61;someValue&#125;&#125;
+</code>
+<br>
+<br>
+<br>
+<h4> Child Component Using Parent Component Block Form </h4>
+<div class="ui steps">
+    <a class="step">
+        <div class="content">
+            <div class="title">First Level</div>
+            <div class="description">Passing child component using block form the parent component. </div>
+        </div>
+    </a>
+</div>
+<pre>&lt;!--- application.hbs ---!&gt;
+&#123;&#123;#parent-component param&#61;someValue&#125;&#125;
+    &#123;&#123;child-component param&#61;someValue&#125;&#125;
+&#123;&#123;/parent-component param&#61;someValue&#125;&#125;
+
+</pre>
+<br>
+<h4> Child Component Inside Parent Component </h4>
+<div class="ui steps">
+    <a class="step">
+        <div class="content">
+            <div class="title">First Level</div>
+            <div class="description">Passing required parameters. </div>
+        </div>
+    </a>
+    <a class="step">
+        <div class="content">
+            <div class="title">Second Level</div>
+            <div class="description">Passing required parameters which are avail in parent component. </div>
+        </div>
+    </a>
+</div>
+<pre>&lt;!--- application.hbs ---!&gt;
+&#123;&#123;parent-component param&#61;someValue&#125;&#125;
+
+&lt;!--- parent-component.hbs ---!&gt;
+&#123;&#123;child-component param&#61;someValue&#125;&#125;
+
+&lt;!--- child-component.hbs ---!&gt;
+&lt;div&gt; Initialized Successfully &lt;/div&gt;
+
+</pre>

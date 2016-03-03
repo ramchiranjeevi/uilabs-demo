@@ -5,6 +5,7 @@
 body{
     margin: 0px;
     font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: inherit;
 }
 ul{
     list-style: none;
@@ -72,8 +73,9 @@ ul > li {
     right: 0px;
     background: #EAEBEC;
     left: 230px;
-    bottom: 0;
     top: 0;
+    height: 100%;
+    box-sizing: border-box;
 }
 .nav-sidebar > li > a {
     padding: 7px 15px;
