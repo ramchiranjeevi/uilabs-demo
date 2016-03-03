@@ -1,0 +1,7 @@
+<div {{action 'callChildren'}}>I'm Parent Component, Do click me to trigger the Child!</div>
+  <hr>
+{{#each model as |person|}}
+  {{#child-comp person=person as |title|}}
+    {{last-child title=title}}
+  {{/child-comp}}
+{{/each}}

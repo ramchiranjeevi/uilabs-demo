@@ -20,9 +20,16 @@ Router.map(function() {
   this.route('notification');
   this.route('progressbar');
   this.route('spinner');
+
   this.route('dialog');
+<<<<<<< Updated upstream
   this.route('components-path');
   this.route('service-example');
+=======
+  this.route('component-action-example');
+  this.route('simple-modal-dialog-two');
+  this.route('eventbus');
+>>>>>>> Stashed changes
 });
 
 export default Router;
