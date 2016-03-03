@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Mixin.create({
   actions: {
-    // COMMON TRIGGERING CONTEXTMENU ACTION HANDLER
+    // MOREMENUS ACTION HANDLER
     showMoreMenus(){
       var _self = this;
       var isMoreMenu = _self.get('isMoreMenu');
@@ -16,6 +16,7 @@ export default Ember.Mixin.create({
       }
     },
 
+    //CONTEXTMENUS ACTION HANDLER
     showContextMenus(){
       var _self = this;
       //  alert('pp');
@@ -30,6 +31,7 @@ export default Ember.Mixin.create({
       }
     },
 
+    //HIDE CONTEXTMENUS ACTION HANDLER
     hideContextMenu(){
       var _self = this;
       var isContextMenu = _self.get('isContextMenu');

@@ -21,7 +21,7 @@ export default Ember.Component.extend(MenuMixin,  {
   mouseMove( event ){
     var self = this;
     event.stopPropagation();
-  //  self.send('showSubMenu');
+    //  self.send('showSubMenu');
     // var subMenus = this.get('menuItem.children');
     // if(subMenus.length){
     //   self.set('subMenuObj', subMenus);
