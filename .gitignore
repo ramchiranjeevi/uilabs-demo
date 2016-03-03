@@ -15,3 +15,13 @@
 /libpeerconnection.log
 npm-debug.log
 testem.log
+
+tests/integration/components/application-component-test.js
+
+tests/integration/components/menuselection-component-test.js
+
+tests/integration/components/submenu-component-test.js
+
+tests/unit/mixins/menumixin-test.js
+
+tests/unit/mixins/submenumixin-test.js

@@ -19,18 +19,28 @@ export default Ember.Component.extend(MenuMixin,  {
   // MOUSEMOVE EVENT ACTION HANDLER
 
   mouseMove( event ){
-    //var self = this;
+    var self = this;
     event.stopPropagation();
-    //  self.send('showSubMenu');
-    // var subMenus = this.get('menuItem.children');
-    // if(subMenus.length){
-    //   self.set('subMenuObj', subMenus);
-    //   self.set('isShowSubMenu', true);
-    // }
-    // else {
-    //   self.set('subMenuObj', []);
-    //   self.set('isShowSubMenu', false);
-    // }
+    var subMenus = this.get('menuItem.children');
+    var isSubMenu = this.get('menuItem.isSubMenu');
+    self.set('subMenuObj', subMenus);
+    var $ = Ember.$;
+    var submenudiv = $("#submenudiv");
+    var isShowSubMenu = self.get("isShowSubMenu");
+    if(subMenus.length)
+    {
+      self.set('isShowSubMenu', true);
+      submenudiv.css({'position': 'absolute', 'display': 'block'});
+    }
+    else {
+      self.set('isShowSubMenu', false);
+      submenudiv.css({'display': 'none'});
+      if(isSubMenu)
+      {
+        self.set('isShowSubMenu', true);
+        submenudiv.css({'position': 'absolute', 'display': 'block'});
+      }
+    }
   },
 
   actions:{

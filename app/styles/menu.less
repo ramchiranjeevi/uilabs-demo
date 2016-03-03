@@ -130,6 +130,10 @@
   margin: 0 0 0 .5em;
 }
 
+.ui.vertical.menu .item>i.icon.menuitem {
+  float: left;
+}
+
 .ui.menu .active.item>i.icon {
   opacity: 1;
 }
@@ -147,6 +151,7 @@
   transition: box-shadow .1s ease,width .1s ease;
   -webkit-tap-highlight-color: transparent;
 }
+
 :after, :before {
   box-sizing: inherit;
 }
@@ -188,15 +193,15 @@ i.icon:before {
   margin-left: 1em
 }
 
-.ui.vertical.menu .item>i.icon {
-  width: 1.18em;
-  float: right;
-  margin: 0 0 0 .5em;
-}
-
 .ui.menu .item>i.dropdown.icon {
   padding: 0;
 
+}
+
+.ui.menu .item>i.typetxt.icon {
+  color:#949191;
+  font-size:15px;
+  padding:2px 0px 0px 35px;
 }
 
 .ui.menu .item>i.icon {
