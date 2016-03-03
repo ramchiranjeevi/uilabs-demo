@@ -4,6 +4,7 @@
   {{menu-component menuItem=item content=item}}
   {{/each}}
 </div>
+
 <div id="moreMenu" class="moremenudiv"  {{action 'showMoreMenus'}} style="margin-top: -453px;margin-left: 370px" >
   <div>More Menus</div>
 </div>
@@ -25,12 +26,10 @@
 </div>
 {{/if}}
 
-<div class="ui dropdown item active visible" style="float: left;margin-left: 157px;margin-top: -14px;">
-  <div class="menu transition" id="submenudiv" style="display:none;padding:12px;width: 110px;">
-    {{#each model as | item |}}
-    {{#each item.children as | children |}}
-    {{menu-component menuItem=children content=children}}
-    {{/each}}
-    {{/each}}
-  </div>
+<div class="ui vertical menu {{if isMoreMenu 'moresubmenu' 'submenu'}} {{if isContextMenu 'contextsubmenu' 'submenu'}}" id="submenudiv">
+  {{#each model as | item |}}
+  {{#each item.children as | children |}}
+  {{menu-component menuItem=children content=children}}
+  {{/each}}
+  {{/each}}
 </div>

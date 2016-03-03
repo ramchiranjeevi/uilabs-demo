@@ -13,7 +13,10 @@ export default Ember.Component.extend(MenuMixin,  {
     var self = this;
     event.stopPropagation();
     var menuAction = self.get('menuItem.action');
-    self.send(menuAction);
+    if(menuAction !== "")
+    {
+      self.send(menuAction);
+    }
   },
 
   // MOUSEMOVE EVENT ACTION HANDLER
@@ -45,54 +48,55 @@ export default Ember.Component.extend(MenuMixin,  {
 
   actions:{
 
+    //ACTIONS HANDLER FOR MENUS
 
     createfolderAction: function(){
-      alert('Create New Folder');
+      console.log('Create New Folder');
     },
 
     openAction: function(){
-      alert('Open');
+      console.log('Open');
     },
 
     shareAction: function(){
-      alert('Share');
+      console.log('Share');
     },
 
     cutAction: function(){
-      alert('Cut an Item');
+      console.log('Cut an Item');
     },
 
     copyAction: function(){
-      alert('Copy an Item');
+      console.log('Copy an Item');
     },
 
     pasteAction: function(){
-      alert('Paste an Item');
+      console.log('Paste an Item');
     },
 
     renameAction: function(){
-      alert('Rename document');
+      console.log('Rename document');
     },
 
     duplicateAction: function(){
-      alert('Duplicate an Item');
+      console.log('Duplicate an Item');
     },
 
     downloadAction: function(){
-      alert('Download an Item');
+      console.log('Download an Item');
     },
 
-    // readAction: function(){
-    //   alert('Read');
-    // },
-    //
-    // readWriteAction: function(){
-    //   alert('Read Write');
-    // },
-    //
-    // coOwnerAction: function(){
-    //   alert('Co-Owner')
-    // },
+    readAction: function(){
+      console.log('Read Only');
+    },
+
+    readWriteAction: function(){
+      console.log('Read Write');
+    },
+
+    coOwnerAction: function(){
+      console.log('Co-Owner')
+    },
 
   }
 });
