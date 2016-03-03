@@ -1,10 +1,24 @@
 
-<div>Selected Item: {{ ddObj.selected_value}} </div>
+<h3> Custom Fields </h3>
+<a class="ui red tag label cf-dd-label" {{action 'initCF'}}> Drop Down </a>
 
-{{cf-drop-down model=field_types def_value='Single line text'}}
+{{#if inject_service}}
+  <div class="ui two column grid cf-container">
+    <div class="column">
+      <div class="ui raised segment">
+        <a class="ui red ribbon label"> Drop Down </a>
 
-{{#if ddObj.yesOrNo}}
+          <div class='cf-comp'>
+            <span> Selected Item: <i>{{ ddObj.selected_value}} </i></span>
+            <div class='cf-dd-cont'>
+              {{cf-drop-down model=field_types def_value='Single line text'}}
+              {{#if ddObj.yesOrNo}}
+                {{cf-drop-down model=yesOrNo_Obj def_value='Yes'}}
+              {{/if}}
+            </div>  
+          </div>
 
-  {{cf-drop-down model=yesOrNo_Obj def_value='Yes'}}
-
+      </div>
+    </div>
+  </div>
 {{/if}}
