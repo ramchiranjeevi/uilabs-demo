@@ -8,10 +8,13 @@ export default Ember.Component.extend({
   def_value: '',
   isActive: false,
   classNames: ['ui','selection','dropdown', 'cf-dd'],
+  classNameBindings: ['active'],
+  active: false,
 
   click: function(){
     var self = this;
-    self.set('isActive', !self.get('isActive'));
+    self.toggleProperty('isActive');
+    self.toggleProperty('active');
   },
 
   actions:{

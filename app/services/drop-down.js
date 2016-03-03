@@ -2,12 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Service.extend({
 
-  selected_value: 'Single line text',
   yesOrNo: false,
+  selected_obj:{},
 
   updateVal: function( obj ){
-    var self = this;
-    self.set('selected_value', obj.value);
+    var self = this,
+    key = 'selected_obj.'+obj.key;
+    self.set(key, obj.value);
 
     if ( obj.value === 'Yes/No' ){
       self.set('yesOrNo', true);
