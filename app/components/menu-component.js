@@ -19,7 +19,7 @@ export default Ember.Component.extend(MenuMixin,  {
   // MOUSEMOVE EVENT ACTION HANDLER
 
   mouseMove( event ){
-    var self = this;
+    //var self = this;
     event.stopPropagation();
     //  self.send('showSubMenu');
     // var subMenus = this.get('menuItem.children');
