@@ -18,7 +18,7 @@ export default Ember.Component.extend({
 
       if(new_name.length < 1){
         alert('Name is Empty, Please Type Something');
-        this.$(input).focus();
+        this.$('input').focus();
       }
 
       if ( event.keyCode === 13) {
@@ -32,7 +32,7 @@ export default Ember.Component.extend({
       }
   },
 
-  focusOut:function (new_name) { // NOTE: when focusOut inputbox hide
+  focusOut:function () { // NOTE: when focusOut inputbox hide
         this.get('renameList').set('is_rename', false);
   },
 
