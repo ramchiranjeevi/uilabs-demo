@@ -4,34 +4,33 @@
   <br>
   <br>
     <div class="ui input focus">
-      {{input type="text" data-toggle="tooltip" data-placement="bottom" value=defaultvalue}}
+      {{input type="text" data-placement="bottom" value=defaultvalue}}
     </div>
   <br>
   <br>
     <b>Notification Type:-</b>
   <br>
   <br>
+
+    <input type="checkbox" {{action "closeIcon"}}>
+    <label>With Close Icon</label>
+
   <br>
   <br>
 
-  <!-- {{notification-type id="1" class="ui green button" label="Success Message"}}
-  {{notification-type id="2" class="ui orange button" label="Warning Message"}}
-  {{notification-type id="3" class="ui red button" label="Error Message"}}
-  {{notification-type id="4" class="ui primary button" label="Regular Message"}} -->
-
-  <button {{action 'notificationMsg'}} class="ui red  button">Error</button>
-  <button {{action 'notificationMsg'}} class="ui orange  button">Warning</button>
-  <button {{action 'notificationMsg'}} class="ui teal  button">Regular</button>
-  <button {{action 'notificationMsg'}} class="ui green  button">Success</button>
+  <button {{action 'errorMsg' "error"}} class="ui red  button">Error</button>
+  <button {{action 'errorMsg' "warning"}} class="ui orange  button">Warning</button>
+  <button {{action 'errorMsg' "regular"}} class="ui teal  button">Regular</button>
+  <button {{action 'errorMsg' "success"}} class="ui green  button">Success</button>
 
     <br>
     <br>
     <br>
-
-
 
 </div>
-  <!-- <div class="Ndiv">{{defaultvalue}}</div> -->
     {{#if is_notify}}
-      {{notification-selector label="Renu"}}
+    <div  class="ui Ndiv">
+        {{notification-selector model=errormode label=defaultvalue}}
+    </div>
+
     {{/if}}

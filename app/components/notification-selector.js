@@ -6,8 +6,8 @@ export default Ember.Component.extend({
     classNameBindings: ['ui'],
     // attributeBindings:['color'],
 
-    didInsertElement:function() {
-        console.log('its come');
+    didInsertElement:function () {
+      console.log('in Notification-selector component');
     }
 
 

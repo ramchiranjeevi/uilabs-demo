@@ -3,7 +3,8 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
   is_notify: false,
-  defaultvalue: "Notification"
-
+  is_close: false,
+  defaultvalue: "Notification",
+  errormode:[]
 
 });
