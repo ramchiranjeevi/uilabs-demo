@@ -3,12 +3,19 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 
     tagName: 'div',
-    classNameBindings: ['ui'],
-    // attributeBindings:['color'],
+    classNameBindings: ['ui','color','Ncomp'],
+    attributeBindings:['background-color':"Ncolor"],
+
+    Ncolor:'',
+
+
 
     didInsertElement:function () {
-      console.log('in Notification-selector component');
+      
+      this.set('Ncolor',this.get('controller').get('color')+'!important');
+
     }
+
 
 
 

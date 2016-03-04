@@ -42,7 +42,7 @@ export default Ember.Component.extend({
     },
     updateName: function(new_name){
         this.get('renameList').set('res_name', new_name);
-        console.log('New Name Updated in Model')
+        console.log('New Name Updated in Model');
     }
   }
 });
