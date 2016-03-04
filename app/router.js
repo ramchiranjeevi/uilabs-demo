@@ -27,6 +27,7 @@ Router.map(function() {
   this.route('component-action-example');
   this.route('simple-modal-dialog-two');
   this.route('eventbus');
+  this.route('dropdown');
 });
 
 export default Router;

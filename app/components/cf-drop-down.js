@@ -6,14 +6,12 @@ export default Ember.Component.extend({
 
   tagName: 'div',
   def_value: '',
-  isActive: false,
   classNames: ['ui','selection','dropdown', 'cf-dd'],
   classNameBindings: ['active'],
   active: false,
 
   click: function(){
     var self = this;
-    self.toggleProperty('isActive');
     self.toggleProperty('active');
   },
 
@@ -26,7 +24,7 @@ export default Ember.Component.extend({
     }
 
   },
-
+  
   willDestroyElement: function(){
     var self = this;
     self.get('ddObj').init();

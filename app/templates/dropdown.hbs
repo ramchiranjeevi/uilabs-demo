@@ -1,0 +1,35 @@
+
+<h3> Drop Down </h3><i>( for custom fields )</i>
+<hr>
+
+<a class="ui red tag label cf-dd-label" {{action 'initCF'}}> Drop Down </a>
+<i class="pointing left icon"></i>
+<span> Click it for Show / hide Drop Down. </span>
+
+{{#if inject_service}}
+  <div class="ui two column grid cf-container">
+    <div class="column">
+      <div class="ui raised segment">
+        <a class="ui red ribbon label"> Drop Down </a>
+
+        <div class='cf-comp'>
+          <span> Selected Item: <i>{{ ddObj.selected_obj.field }} </i></span>
+          <div class='cf-dd-cont'>
+            {{cf-drop-down model=field_types def_value='Single line text'}}
+          </div>
+        </div>
+
+        {{#if ddObj.yesOrNo}}
+          <div class='cf-comp'>
+            <span> Selected Item: <i>{{ ddObj.selected_obj.yesOrNo }} </i></span>
+            <div class='cf-dd-cont'>
+              {{cf-drop-down model=yesOrNo_Obj def_value='Yes'}}
+            </div>
+          </div>
+        {{/if}}
+
+
+      </div>
+    </div>
+  </div>
+{{/if}}
