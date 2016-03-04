@@ -20,14 +20,5 @@ export default Ember.Service.extend({
       self.set('yesOrNo', true);
     }
   },
-<<<<<<< Updated upstream
-
-  updateCfObj: function( obj ){
-    var self = this;
-    self.set(obj.key, obj.value);
-  }
-
-=======
   
->>>>>>> Stashed changes
 });
