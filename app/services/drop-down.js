@@ -4,9 +4,6 @@ export default Ember.Service.extend({
 
   yesOrNo: false,
   selected_obj:{},
-  selected_field: 'Single line text',
-  slt_fields: ['cf-text-box','cf-text-area','cf-text-box','cf-text-box'],
-  cf_obj: {},
 
   init: function(){
     var self = this;
@@ -23,10 +20,14 @@ export default Ember.Service.extend({
       self.set('yesOrNo', true);
     }
   },
+<<<<<<< Updated upstream
 
   updateCfObj: function( obj ){
     var self = this;
     self.set(obj.key, obj.value);
   }
 
+=======
+  
+>>>>>>> Stashed changes
 });

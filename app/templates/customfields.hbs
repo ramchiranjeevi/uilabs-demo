@@ -1,2 +1,20 @@
 
-<h3> Custom Fields </h3>
+<div class='cust_flds'>
+
+  <h4> Custom Fields </h4>
+  <hr>
+
+  <div class='flds-cont' >
+    {{cf-label value='Field type'}}
+    {{cf-drop-down model=ddController.field_types def_value=selected_field}}
+
+    <br><br>
+
+    {{#each cfService.render_Obj as | field |}}
+      {{cf-label value=field.label}}
+      {{component field.type place_holder=field.text}}
+      <br><br>
+    {{/each}}
+
+  </div>
+</div>
