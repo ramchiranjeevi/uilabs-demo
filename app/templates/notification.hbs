@@ -30,6 +30,9 @@
 </div>
     {{#if is_notify}}
     <div  class="ui Ndiv">
+      <button {{action "closeAction"}} class="ui compact icon button">
+        <i class="close icon"></i>
+      </button>
         {{notification-selector color=errormode label=defaultvalue}}
     </div>
 

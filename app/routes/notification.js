@@ -27,6 +27,12 @@ export default Ember.Route.extend({
            console.log(this.get('controller').set('errormode', 'green'));
       }
 
+    },
+
+    closeAction:function(){
+        this.get('controller').set('is_notify', false);  
     }
+
+
 }
 });
