@@ -25,6 +25,11 @@ export default Ember.Component.extend({
       self.get('ddObj').updateVal(obj);
     }
 
+  },
+
+  willDestroyElement: function(){
+    var self = this;
+    self.get('ddObj').init();
   }
 
 });

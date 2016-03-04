@@ -9,10 +9,8 @@ export default Ember.Controller.extend({
     var self = this;
     if (self.get('inject_service')){
       self.set('ddObj', Ember.inject.service('drop-down'));
-      alert('injected..');
     } else {
       self.set('ddObj', '');
-      alert('Empty..');
     }
   }),
 
