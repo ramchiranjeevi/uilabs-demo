@@ -7,6 +7,6 @@ export default Ember.Route.extend({
             Ember.Object.create({ "value": 100, "label": "SUCCESS", "className": "success" }),
             Ember.Object.create({ "value": 100, "label": "WARNING", "className": "warning" }),
             Ember.Object.create({ "value": 100, "label": "ERROR", "className": "error" })
-        ]
+        ];
     }
 });
