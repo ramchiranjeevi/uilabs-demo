@@ -9,7 +9,9 @@ export default Ember.Controller.extend({
 
     // MOREMENUS ACTION HANDLER
     showMoreMenus(){
-      var self = this;
+      var self = this,
+      $ = Ember.$;
+      $("#submenudiv").css({'display': 'none'});
       var isMoreMenu = self.get('isMoreMenu');
       if(isMoreMenu)
       {
@@ -23,8 +25,9 @@ export default Ember.Controller.extend({
 
     //CONTEXTMENUS ACTION HANDLER
     showContextMenus(){
-      var self = this;
-      //  alert('pp');
+      var self = this,
+      $ = Ember.$;
+      $("#submenudiv").css({'display': 'none'});
       var isContextMenu = self.get('isContextMenu');
       if(isContextMenu)
       {
@@ -38,7 +41,9 @@ export default Ember.Controller.extend({
 
     //HIDE CONTEXTMENUS ACTION HANDLER
     hideContextMenu(){
-      var self = this;
+      var self = this,
+      $ = Ember.$,
+      $("#submenudiv").css({'display': 'none'});
       var isContextMenu = self.get('isContextMenu');
       if(isContextMenu)
       {

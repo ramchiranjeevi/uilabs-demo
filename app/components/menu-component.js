@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import MenuMixin from '../mixins/menumixin';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend( MenuMixin, {
 
   menuObj: [],
   subMenuObj : [],
@@ -21,17 +22,30 @@ export default Ember.Component.extend({
   // MOUSEMOVE EVENT ACTION HANDLER
 
   mouseMove( event ){
-    var self = this;
     event.stopPropagation();
-    var subMenus = self.get('menuItem.children'),
-    isSubMenu = self.get('menuItem.isSubMenu');
+    var self = this,
+    controller = self._controller,
+    $ = Ember.$,
+    targetParentEle = event.target.parentElement,
+    parentDiv = targetParentEle.parentNode.id,
+    subMenus = self.get('menuItem.children'),
+    isSubMenu = self.get('menuItem.isSubMenu'),
+    isMoreMenu = controller.get('isMoreMenu'),
+    isContextMenu = controller.get('isContextMenu'),
+    submenudiv = $("#submenudiv");
     self.set('subMenuObj', subMenus);
-    var $ = Ember.$;
-    var submenudiv = $("#submenudiv");
     if(subMenus.length)
     {
       self.set('isShowSubMenu', true);
-      submenudiv.css({'position': 'absolute', 'display': 'block'});
+      submenudiv.css({'display': 'block'});
+      if(isMoreMenu || isContextMenu)
+      {
+          if(parentDiv === "basicmenudiv")
+          {
+            controller.set('isMoreMenu', false);
+            controller.set('isContextMenu', false);
+          }
+      }
     }
     else {
       self.set('isShowSubMenu', false);
@@ -43,58 +57,4 @@ export default Ember.Component.extend({
       }
     }
   },
-
-  actions:{
-
-    //ACTIONS HANDLER FOR MENUS
-
-    createfolderAction: function(){
-      console.log('Create New Folder');
-    },
-
-    openAction: function(){
-      console.log('Open');
-    },
-
-    shareAction: function(){
-      console.log('Share');
-    },
-
-    cutAction: function(){
-      console.log('Cut an Item');
-    },
-
-    copyAction: function(){
-      console.log('Copy an Item');
-    },
-
-    pasteAction: function(){
-      console.log('Paste an Item');
-    },
-
-    renameAction: function(){
-      console.log('Rename document');
-    },
-
-    duplicateAction: function(){
-      console.log('Duplicate an Item');
-    },
-
-    downloadAction: function(){
-      console.log('Download an Item');
-    },
-
-    readAction: function(){
-      console.log('Read Only');
-    },
-
-    readWriteAction: function(){
-      console.log('Read Write');
-    },
-
-    coOwnerAction: function(){
-      console.log('Co-Owner');
-    },
-
-  }
 });
