@@ -1,0 +1,32 @@
+<div class="add-files-placeholder files-count-placeholder">
+    <div class="ui right floated horizontal list">
+        <a class="item add-files-link" href="javascript:;">
+            {{file-input name="uploadFiles" multiple=true on-change=(action "addFiles")}}
+            Add Files
+        </a>
+    </div>
+    <div class="ui horizontal list">
+        <span class="item">
+            <span class="description">{{filesCount}} {{labelOfFileCount}}</span>
+        </span>
+    </div>
+</div>
+<div class="ui middle aligned divided list files-listing-container">
+    {{#each requiredService.filesList as | file |}}
+        <div class="item">
+            <div class="right floated content">
+                <a class="remove-file" {{action "removeFile" file}} href="javascript:;">
+                    <span class="remove-file-icon"></span>
+                </a>
+            </div>
+            <span class="ui avatar image file-icon-class">
+                <span class="icon-other grid-icons"></span>
+            </span>
+            <div class="content">
+                <span class="file-name-placeholder"> {{file.name}} </span>
+            </div>
+        </div>
+    {{else}}
+        No file selected...
+    {{/each}}
+</div>

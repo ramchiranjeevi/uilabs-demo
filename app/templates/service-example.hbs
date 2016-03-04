@@ -1,3 +1,15 @@
 {{#ui-dialog serviceName="createfolder-dialogoptions"}}
     {{create-folder serviceName="createfolder-dialogoptions"}}
 {{/ui-dialog}}
+<br>
+<br>
+<br>
+<br>
+
+{{#if showUploadDialog}}
+    {{#ui-dialog serviceName="upload-dialogoptions"}}
+        {{files-list serviceName="upload-dialogoptions"}}
+    {{/ui-dialog}}
+{{else}}
+    {{file-input name="initialUpload" multiple=true on-change=(action "enableUploadDialog")}}
+{{/if}}

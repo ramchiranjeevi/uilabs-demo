@@ -1,0 +1,51 @@
+input[name='uploadFiles']{
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+    opacity: 0;
+}
+.add-files-link{
+    position: relative;
+}
+.files-listing-container{
+    max-height: 74px;
+    background-color: @f5f5f5;
+    overflow: auto;
+    padding: 10px !important;
+    border: 1px solid @ededed;
+}
+.remove-file{
+    height: 18px;
+    width: 18px;
+    margin: 0 5px 0;
+    display: inline-block;
+}
+.remove-file-icon{
+    width: 8px;
+    height: 8px;
+    margin: 10px auto;
+    display: block;
+    background-image: url(@imageURL);
+    background-position: -153px -418px;
+}
+.grid-icons{
+    width: 16px;
+    height: 16px;
+    margin: 1px 0 0 0;
+    padding: 0;
+    display: inline-block;
+}
+.icon-other{
+    background-image: url(@imageURL);
+    background-position: -19px -40px;
+}
+.file-icon-class{
+    width: 16px !important;
+}
+.file-name-placeholder{
+    width: 379px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

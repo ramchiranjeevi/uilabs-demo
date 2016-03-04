@@ -25,7 +25,7 @@ export default Ember.Service.extend({
   },
 
   updateCfObj: function( obj ){
-    var self = this,
+    var self = this;
     self.set(obj.key, obj.value);
   }
 
