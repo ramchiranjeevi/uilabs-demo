@@ -42,7 +42,7 @@ export default Ember.Controller.extend({
     //HIDE CONTEXTMENUS ACTION HANDLER
     hideContextMenu(){
       var self = this,
-      $ = Ember.$,
+      $ = Ember.$;
       $("#submenudiv").css({'display': 'none'});
       var isContextMenu = self.get('isContextMenu');
       if(isContextMenu)
