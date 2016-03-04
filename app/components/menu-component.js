@@ -1,7 +1,6 @@
 import Ember from 'ember';
-import MenuMixin from '../mixins/menumixin';
 
-export default Ember.Component.extend(MenuMixin,  {
+export default Ember.Component.extend({
 
   menuObj: [],
   subMenuObj : [],
@@ -24,12 +23,11 @@ export default Ember.Component.extend(MenuMixin,  {
   mouseMove( event ){
     var self = this;
     event.stopPropagation();
-    var subMenus = this.get('menuItem.children');
-    var isSubMenu = this.get('menuItem.isSubMenu');
+    var subMenus = self.get('menuItem.children'),
+    isSubMenu = self.get('menuItem.isSubMenu');
     self.set('subMenuObj', subMenus);
     var $ = Ember.$;
     var submenudiv = $("#submenudiv");
-    var isShowSubMenu = self.get("isShowSubMenu");
     if(subMenus.length)
     {
       self.set('isShowSubMenu', true);
@@ -95,7 +93,7 @@ export default Ember.Component.extend(MenuMixin,  {
     },
 
     coOwnerAction: function(){
-      console.log('Co-Owner')
+      console.log('Co-Owner');
     },
 
   }
