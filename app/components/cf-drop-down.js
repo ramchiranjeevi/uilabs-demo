@@ -22,6 +22,7 @@ export default Ember.Component.extend({
       var self = this;
       self.set('def_value', obj.value);
       self.get('ddObj').updateVal( obj );
+      self.get('cfService').updateCfObj( obj );
     }
 
   },
