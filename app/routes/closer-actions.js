@@ -7,7 +7,8 @@ let CreateFolderModelClass = Object.extend({
 
   save() {
     return new Ember.RSVP.Promise(function(resolve, reject) {
-      if (name !== null) {
+      // console.log((Math.random() < 0.26));
+      if (Math.random() < 0.26 ) {
         Logger.error('server error');
         reject('Server error, please try again');
       } else {
