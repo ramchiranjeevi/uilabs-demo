@@ -1,14 +1,15 @@
 import Ember from 'ember';
 
-const { Controller } = Ember;
+const { Controller, inject } = Ember;
 
 export default Controller.extend({
-  actions: {
-    saveName(name) {
-      let model = this.get('model');
+    createFolderModel: inject.service(),
+    actions: {
+        saveName(name) {
+            let model = this.get('model');
 
-      model.set('name', name);
-      return model.save();
+            model.set('name', name);
+            return this.get("createFolderModel").save();
+        }
     }
-  }
 });
