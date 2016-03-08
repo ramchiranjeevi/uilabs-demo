@@ -4,17 +4,22 @@
   <h4> Custom Fields </h4>
   <hr>
 
-  <div class='flds-cont' >
-    {{cf-label value='Field type'}}
-    {{cf-drop-down model=ddController.field_types def_value=selected_field }}
 
-    <br><br>
+  <div class="ui two column centered grid">
+
+    <div class="column row">
+      <div class="column fluid"> {{cf-label value='Field type'}}</div>
+      <div class="column fluid">{{cf-drop-down model=ddController.field_types def_value=selected_field }}</div>
+    </div>
+
 
     {{#each cfService.render_Obj as | field |}}
-      {{cf-label value=field.label}}
-      {{component field.type place_holder=field.text}}
-      <br><br>
+      <div class="column row">
+        <div class="column fluid"> {{cf-label value=field.label}}</div>
+        <div class="column fluid"> {{component field.type place_holder=field.text}}</div>
+      </div>
     {{/each}}
 
   </div>
+
 </div>

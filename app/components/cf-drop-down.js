@@ -7,7 +7,7 @@ export default Ember.Component.extend({
 
   tagName: 'div',
   def_value: '',
-  classNames: ['ui','selection','dropdown', 'cf-dd'],
+  classNames: ['ui','selection','dropdown', 'fluid'],
   classNameBindings: ['active'],
   active: false,
 
