@@ -1,0 +1,17 @@
+{{#if isEditing}}
+  <form {{action "onSave" on="submit"}}>
+    <div>
+      {{input value=editedName}}
+      <button disabled={{saveDisabled}}>
+        Create
+      </button>
+      <button {{action "onCancel"}} type="button">
+        Cancel
+      </button>
+    </div>
+  </form>
+
+  {{#if error}}<div>{{error}}</div>{{/if}}
+{{else}}
+  <h3 {{action "onEdit"}}>{{name}}</h3>
+{{/if}}
