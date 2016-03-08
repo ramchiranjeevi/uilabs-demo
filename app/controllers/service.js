@@ -1,6 +1,6 @@
 import Ember from 'ember';
 // import DialogComponent from '../components/ui-dialog';
-import dialogUtil from '../utils/dialog-util';
+// import dialogUtil from '../utils/dialog-util';
 
 export default Ember.Controller.extend({
     actions: {
