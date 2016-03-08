@@ -29,6 +29,7 @@ Router.map(function() {
   this.route('eventbus');
   this.route('dropdown');
   this.route('closer-actions');
+  this.route('service');
 });
 
 export default Router;

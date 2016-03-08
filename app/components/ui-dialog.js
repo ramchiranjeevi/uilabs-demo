@@ -1,33 +1,31 @@
 import Ember from 'ember';
 
+const { inject, $ } = Ember;
+
 export default Ember.Component.extend({
     requiredService: null,
     classNames: ["dialog-container"],
-    initialization: function(){
-        let defaultOptions = {
-            title: "Dialog",
-            height: "auto",
-            width: "auto",
-            successLabel: "OK",
-            cancelLabel: "Cancel",
-            buttons: {}
-        };
 
-        this.set( "requiredService", Ember.inject.service(this.get("serviceName")) );
+    initialization: function(){
+        this.set("requiredService", inject.service( this.get("serviceName") ));
 
         const userPreferableOptions = this.get("requiredService.dialogObject");
-
-        this.set( "dialogOptions", Ember.$.extend( defaultOptions, userPreferableOptions ) );
-
+        const defaultOptions = {
+                title: "Dialog",
+                height: "auto",
+                width: "auto",
+                successLabel: "OK",
+                cancelLabel: "Cancel",
+                buttons: {}
+            };
+        this.set( "dialogOptions", $.extend( defaultOptions, userPreferableOptions ) );
     }.on("didReceiveAttrs"),
 
     didInsertElement(){
-        if( this.get("dialogOptions.height") ){
-            this.$().height( this.get("dialogOptions.height") );
-        }
-        if( this.get("dialogOptions.width") ){
-            this.$().width( this.get("dialogOptions.width") );
-        }
+        var height = this.get("dialogOptions.height"),
+            width = this.get("dialogOptions.width");
+
+        this.$().height( height ).width( width );
     },
     actions: {
         success(){

@@ -8,10 +8,9 @@ export default Ember.Service.extend( commonActionsMixin, {
     errorMessage: "",
     init(){
         var _this = this;
+
         _this.set("dialogObject", {
-            title: "Create Folder",
-            successLabel: "Create Folder",
-            width: 350,
+            title: "Create Folder", successLabel: "Create Folder", width: 350,
             buttons: {
                 success(){
                     var validate = _this.get("actions").validateUserInput( _this.get("folderName") );

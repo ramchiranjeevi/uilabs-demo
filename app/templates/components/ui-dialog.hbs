@@ -2,7 +2,11 @@
     <span>{{dialogOptions.title}}</span>
 </div>
 <div class="content">
-    {{yield}}
+    {{#if componentName}}
+        {{component componentName}}
+    {{else}}
+        {{yield}}
+    {{/if}}
 </div>
 <div class="button-container">
     <button class="ui green button" {{action 'success'}}>{{dialogOptions.successLabel}}</button>
