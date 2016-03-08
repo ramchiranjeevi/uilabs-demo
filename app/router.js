@@ -27,11 +27,8 @@ Router.map(function() {
   this.route('component-action-example');
   this.route('simple-modal-dialog-two');
   this.route('eventbus');
-<<<<<<< Updated upstream
   this.route('dropdown');
-=======
   this.route('closer-actions');
->>>>>>> Stashed changes
 });
 
 export default Router;
