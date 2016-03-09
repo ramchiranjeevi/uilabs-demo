@@ -1,35 +1,4 @@
 <div class="basicmenus">Basic Menus</div>
-<div  class="ui vertical menu" id="basicmenudiv" style="margin-top: 10px;">
-  {{#each model as | item |}}
-  {{menu-component menuItem=item content=item}}
-  {{/each}}
-</div>
-
-<div id="moreMenu" class="moremenudiv"  {{action 'showMoreMenus'}} style="margin-top: -453px;margin-left: 370px" >
-  <div>More Menus</div>
-</div>
-<div id="contextMenu" class="contextmenudiv" {{action "showContextMenus" post on="contextMenu" }} {{action "hideContextMenu" post on="click"}} style="margin-top: -35px;margin-left: 666px;">
-  <div>Context Menus</div>
-</div>
-{{#if isMoreMenu}}
-<div  class="ui vertical menu" style="position: absolute;margin-top: -1px;margin-left: 367px;">
-  {{#each model as | item |}}
-  {{menu-component menuItem=item content=item}}
-  {{/each}}
-</div>
-{{/if}}
-{{#if isContextMenu}}
-<div  class="ui vertical menu" style="position: absolute;margin-top: -7px;margin-left: 760px;">
-  {{#each model as | item |}}
-  {{menu-component menuItem=item content=item}}
-  {{/each}}
-</div>
-{{/if}}
-
-<div class="ui vertical menu {{if isMoreMenu 'moresubmenu' 'submenu'}} {{if isContextMenu 'contextsubmenu' 'submenu'}}" id="submenudiv">
-  {{#each model as | item |}}
-  {{#each item.children as | children |}}
-  {{menu-component menuItem=children content=children}}
-  {{/each}}
-  {{/each}}
+<div  class="ui vertical menu" id="showmenudiv" style="margin-top: 10px;">
+{{menu-component menuNode=model content=model}}
 </div>

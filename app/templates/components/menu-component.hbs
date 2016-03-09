@@ -1,5 +1,12 @@
-<a class="item">
-  <i class="{{menuItem.icon}} menuitem"></i>
-  <div style="padding-left: 29px;">{{menuItem.name}}</div>
-  <i class="{{menuItem.arrowClass}} icon" style="margin-top: -14px;font-size: 10px;margin-right: 4px;">{{menuItem.type}}</i>
+{{#each displayedChildren as |displayedChild|}}
+<a class="item" id ="{{displayedChild.id}}" tabindex="{{displayedChild.tab_index}}">
+  <i class="{{displayedChild.icon}} menuitem"></i>
+  <div style="padding-left: 29px;">{{displayedChild.name}}</div>
+  <i class="{{displayedChild.arrowClass}} icon" style="margin-top: -14px;font-size: 10px;margin-right: 4px;color: grey;">{{displayedChild.type}}</i>
 </a>
+  {{#if displayedChild.children}}
+  <div  class="ui vertical menu submenu" id="submenudiv">
+   {{menu-component menuNode=displayedChild.children}}
+ </div>
+  {{/if}}
+{{/each}}
