@@ -7,34 +7,14 @@ export default Ember.Component.extend( MenuMixin, {
   tabObj: [],
   subMenuObj : [],
   isShowSubMenu: false,
-  temp_index: 1,
 
-   //RECURSIVE CALLING FOR MENUNODE
+  //RECURSIVE CALLING FOR MENUNODE
 
-   displayedChildren: function() {
-     var self =  this;
+  displayedChildren: function() {
     return this.get("menuNode").filter(function(node) {
       return node.children;
     });
   }.property("node.children"),
-
-   didInsertElement(){
-     var self = this;
-     $ = Ember.$;
-     self.$("#createNew").attr({ tabindex: 1}), self.$("#createNew").focus();
-     var menuObj = self.get('menuNode');
-     self.set('menuObj', menuObj);
-   },
-
-   //KeyDown EVENT ACTION HANDLER
-
-   keyDown(event){
-     var self = this;
-     var targetId = event.target.id,
-     temp_model = self.get('menuObj'), // No I18N
-     temp_index = self.get('temp_index');  // No I18N
-     console.log(temp_model);
-   },
 
   //CLICK EVENT ACTION HANDLER
 
