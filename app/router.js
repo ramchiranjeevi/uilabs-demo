@@ -20,7 +20,6 @@ Router.map(function() {
   this.route('notification');
   this.route('progressbar');
   this.route('spinner');
-
   this.route('dialog');
   this.route('components-path');
   this.route('service-example');
@@ -30,6 +29,8 @@ Router.map(function() {
   this.route('dropdown');
   this.route('closer-actions');
   this.route('service');
+  this.route('date-picker');
+
 });
 
 export default Router;
