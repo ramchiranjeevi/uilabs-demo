@@ -1,11 +1,11 @@
 {{#each displayedChildren as |displayedChild|}}
-<a class="item" id ="{{displayedChild.id}}" tabindex="{{displayedChild.tab_index}}">
+<a class="item" id ="{{displayedChild.id}}" isChildren={{displayedChild.isSubMenu}} tabindex="{{displayedChild.tab_index}}">
   <i class="{{displayedChild.icon}} menuitem"></i>
   <div style="padding-left: 29px;">{{displayedChild.name}}</div>
   <i class="{{displayedChild.arrowClass}} icon" style="margin-top: -11px;font-size: 10px;margin-right: 4px;color: grey;">{{displayedChild.type}}</i>
 </a>
   {{#if displayedChild.children}}
-  <div  class="ui vertical menu submenu" id="submenudiv">
+  <div  class="ui vertical menu submenu" id="{{displayedChild.id}}div">
    {{menu-component menuNode=displayedChild.children}}
  </div>
   {{/if}}

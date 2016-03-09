@@ -24,14 +24,6 @@ export default Ember.Component.extend( MenuMixin, {
      self.$("#createNew").attr({ tabindex: 1}), self.$("#createNew").focus();
      var menuObj = self.get('menuNode');
      self.set('menuObj', menuObj);
-     var children = [];
-       menuObj.forEach(function (node){
-         children = node.children;
-         if(children.length !== 0)
-          {
-             self.get('subMenuObj').addObject(Ember.Object.create(children)); // No I18N
-           }
-        }, this);
    },
 
    //KeyDown EVENT ACTION HANDLER
@@ -62,15 +54,27 @@ export default Ember.Component.extend( MenuMixin, {
     event.stopPropagation();
     var self = this,
     $ = Ember.$,
-    targetId = event.target.id;
-    if(targetId === "more" || targetId === "submenudiv")
+    targetId = event.target.id,
+    isChildren = $("#"+targetId).attr("ischildren"),
+    showmenudiv = $( "#showmenudiv" ),
+    divHeight = "";
+    $(".ui.vertical.menu.submenu").css({'display': 'none'});
+    if(isChildren)
     {
+      if(showmenudiv.height() > event.clientY)
+      {
+        divHeight = showmenudiv.height() - event.clientY;
+      }
+      else {
+        var height = event.clientY - showmenudiv.height();
+        divHeight = showmenudiv.height() + height;
+      }
       self.set('isShowSubMenu', true);
-      $("#submenudiv").css({'display': 'block'});
+      $("#"+targetId+"div").css({'top': divHeight, 'display': 'block'});
     }
     else {
       self.set('isShowSubMenu', false);
-      $("#submenudiv").css({'display': 'none'});
+      $("#"+targetId+"div").css({'display': 'none'});
     }
   },
 
