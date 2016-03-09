@@ -8,12 +8,9 @@ export default Ember.Component.extend({
   tagName: 'div',
   def_value: '',
   classNames: ['ui','selection','dropdown', 'fluid'],
-  classNameBindings: ['active'],
-  active: false,
 
-  click: function(){
-    var self = this;
-    self.toggleProperty('active');
+  didInsertElement(){
+    Ember.$('.ui.dropdown').dropdown();
   },
 
   actions:{

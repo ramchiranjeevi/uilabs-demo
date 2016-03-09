@@ -1,10 +1,8 @@
 <i class="dropdown icon">⌵</i>
 <div class="text">{{def_value}}</div>
 
-{{#if active}}
-  <div class="menu showdiv">
-    {{#each model as |item|}}
-        <div class="item" data-value="{{item.value}}" {{action 'change' item}}>{{item.value}}</div>
-    {{/each}}
-  </div>
-{{/if}}
+<div class="menu">
+  {{#each model as |item|}}
+      <div class="item" data-value="{{item.value}}" {{action 'change' item}}>{{item.value}}</div>
+  {{/each}}
+</div>
