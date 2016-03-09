@@ -4,10 +4,13 @@ export default Ember.Component.extend({
   ddObj: Ember.inject.service('drop-down'),
   cfService: Ember.inject.service('cf-service'),
 
-  value:'',
   classNames: ['ui', 'input', 'fluid'],
+  value: '',
 
-  keyUp: function(){
-    console.log(this.get('value'));
+  keyUp( e ){
+    var self = this;
+    self.set('model.value', e.target.value);
   }
+
+
 });
