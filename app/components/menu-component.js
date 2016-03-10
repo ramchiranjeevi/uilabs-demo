@@ -7,6 +7,7 @@ export default Ember.Component.extend( MenuMixin, {
   tabObj: [],
   subMenuObj : [],
   isShowSubMenu: false,
+  childrenObj: [],
 
   //RECURSIVE CALLING FOR MENUNODE
 
@@ -15,6 +16,20 @@ export default Ember.Component.extend( MenuMixin, {
       return node.children;
     });
   }.property("node.children"),
+
+  didInsertElement(){
+    var self = this,
+    $ = Ember.$;
+    self.$("#createNew").attr({ tabindex: 1}), self.$("#createNew").focus();
+    var menuObj = self.get('menuNode');
+    self.set('menuObj', menuObj);
+    self.get("menuObj").forEach(function (obj){
+      if(obj.children.length !== 0)
+      {
+        self.get('childrenObj').addObject(Ember.Object.create(obj)); // No I18N
+      }
+    }, this);
+  },
 
   //CLICK EVENT ACTION HANDLER
 
@@ -30,33 +45,49 @@ export default Ember.Component.extend( MenuMixin, {
 
   // MOUSEMOVE EVENT ACTION HANDLER
 
-  mouseMove( event ){
+  mouseMove(event){
     event.stopPropagation();
     var self = this,
     $ = Ember.$,
     targetId = event.target.id,
-    isChildren = $("#"+targetId).attr("ischildren"),
-    showmenudiv = $( "#showmenudiv" ),
-    divHeight = "";
-    $(".ui.vertical.menu.submenu").css({'display': 'none'});
-    if(isChildren)
+    targetChildren = event.target.children,
+    isShowSubMenu =  self.get("isShowSubMenu");
+    if(targetChildren.length === 4)
     {
-      if(showmenudiv.height() > event.clientY)
+      targetChildren = targetChildren[3].id.split('_')[0];
+      if( !isShowSubMenu && targetChildren === targetId)
       {
-        divHeight = showmenudiv.height() - event.clientY;
+        self.toggleProperty('isShowSubMenu');
+        self.send("showSubMenu", targetId);
       }
-      else {
-        var height = event.clientY - showmenudiv.height();
-        divHeight = showmenudiv.height() + height;
-      }
-      self.set('isShowSubMenu', true);
-      $("#"+targetId+"div").css({'top': divHeight, 'display': 'block'});
     }
-    else {
-      self.set('isShowSubMenu', false);
-      $("#"+targetId+"div").css({'display': 'none'});
+    else
+    {
+      if(isShowSubMenu && targetChildren !== targetId)
+      {
+        self.toggleProperty('isShowSubMenu');
+        $(".ui.vertical.menu.submenu").css({'display' : 'none'});
+      }
     }
   },
 
 
+  actions:{
+    showSubMenu:function(toggleId)
+    {
+      var self = this,
+      $ = Ember.$;
+      self.get('childrenObj').forEach(function (obj){
+        if(obj.id === toggleId)
+        {
+          $("#"+toggleId+"_div").css({'display' : 'block'});
+        }
+        else
+        {
+          $("#"+obj.id+"_div").css({'display' : 'none'});
+        }
+      }, this);
+
+    }
+  }
 });

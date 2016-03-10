@@ -3,10 +3,10 @@
   <i class="{{displayedChild.icon}} menuitem"></i>
   <div style="padding-left: 29px;">{{displayedChild.name}}</div>
   <i class="{{displayedChild.arrowClass}} icon" style="margin-top: -11px;font-size: 10px;margin-right: 4px;color: grey;">{{displayedChild.type}}</i>
-</a>
   {{#if displayedChild.children}}
-  <div  class="ui vertical menu submenu" id="{{displayedChild.id}}div">
-   {{menu-component menuNode=displayedChild.children}}
- </div>
+  <div  class="ui vertical menu submenu" id="{{displayedChild.id}}_div" style="display:none;">
+    {{menu-component menuNode=displayedChild.children}}
+  </div>
   {{/if}}
+</a>
 {{/each}}
