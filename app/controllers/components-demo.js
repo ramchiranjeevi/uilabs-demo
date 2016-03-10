@@ -1,9 +1,11 @@
 import Ember from 'ember';
 import ModalManager from 'ui-lab/utils/modal-manager';
 
+const { inject } = Ember;
+
 export default Ember.Controller.extend({
 
-  simple: Ember.inject.controller("simple-modal-template"),
+  createFolderDialog: inject.service(),
 
 	actions: {
 		showAlert: function() {
@@ -28,10 +30,10 @@ export default Ember.Controller.extend({
 		},
 
 		showTemplateModal: function() {
-			ModalManager.show('simple-modal-template', {
+			ModalManager.show('create-folder-dialog', {
 				title: "Alert!!",
 				ok: "Create"
-			}).then(function() {
+			}, this.get('createFolderDialog')).then(function() {
 			}).catch(function() {
 			});
 		}
