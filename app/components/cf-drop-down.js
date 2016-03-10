@@ -2,15 +2,18 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
-  ddObj: Ember.inject.service('drop-down'),
-  cfService: Ember.inject.service('cf-service'),
 
+  ddObj: '',
+  cfService: '',
   tagName: 'div',
   def_value: '',
   classNames: ['ui','selection','dropdown', 'fluid'],
 
   didInsertElement(){
+    var self = this;
     Ember.$('.ui.dropdown').dropdown();
+    self.set('ddObj', Ember.inject.service('drop-down'));
+    self.set('cfService', Ember.inject.service('cf-service'));
   },
 
   actions:{
@@ -22,11 +25,6 @@ export default Ember.Component.extend({
       self.get('cfService').updateCfObj( obj );
     }
 
-  },
-
-  willDestroyElement: function(){
-    var self = this;
-    self.get('ddObj').init();
   }
 
 });

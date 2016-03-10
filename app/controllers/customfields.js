@@ -2,9 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
-  ddController: Ember.inject.controller('dropdown'),
-  cfService: Ember.inject.service('cf-service'),
+  ddController: '',
+  cfService: '',
 
-  selected_field: 'Single line text',
-  
 });

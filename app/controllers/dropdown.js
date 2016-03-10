@@ -1,14 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  
-    inject_service: false,
-    ddObj:'',
 
-    initService: Ember.observer('inject_service', function() {
-      var self = this;
-      self.set('ddObj', self.get('inject_service') ? Ember.inject.service('drop-down') : '' );
-    }),
+    ddObj: Ember.inject.service('drop-down'),
+
+    selected_type: 'Single line text',
 
     field_types: [ {key: 'field', value: "Single line text", type: 'slt'},  // No I18N
                     {key: 'field', value: "Multi line text", type: 'mlt'}, // No I18N

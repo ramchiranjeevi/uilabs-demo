@@ -5,12 +5,6 @@ export default Ember.Service.extend({
   yesOrNo: false,
   selected_obj:{},
 
-  init: function(){
-    var self = this;
-    self.set('yesOrNo', false);
-    self.set('selected_obj', {});
-  },
-
   updateVal: function( obj ){
     var self = this,
     key = 'selected_obj.'+obj.key;
@@ -20,5 +14,5 @@ export default Ember.Service.extend({
       self.set('yesOrNo', true);
     }
   },
-  
+
 });

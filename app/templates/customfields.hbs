@@ -9,21 +9,21 @@
 
     <div class="column row">
       <div class="column fluid"> {{cf-label value='Field type : '}}</div>
-      <div class="column fluid">{{cf-drop-down model=ddController.field_types def_value=selected_field }}</div>
+      <div class="column fluid">{{cf-drop-down model=ddController.field_types def_value='Single line text' }}</div>
     </div>
 
 
     {{#each cfService.render_Obj as | field |}}
-    <div class="column row">
-      <div class="column fluid"> {{cf-label value=field.label}}</div>
-      <div class="column fluid"> {{component field.type place_holder=field.text model=field value=field.value }}</div>
-    </div>
+      <div class="column row">
+        <div class="column fluid"> {{cf-label value=field.label}}</div>
+        <div class="column fluid"> {{component field.type place_holder=field.text model=field value=field.value }}</div>
+      </div>
     {{/each}}
 
     <div class="column row">
       <div class="column fluid"></div>
       <div class="column fluid">
-        <button class="ui primary button" {{action cfService.addCF }}>Save</button>
+        <button class="ui primary button" {{action cfService.addCF}}>Save</button>
         <button class="ui button">Cancel</button>
       </div>
     </div>
@@ -33,12 +33,12 @@
 </div>
 
 
-{{#if cfService.cf_obj}}
-  <div class="ui two column grid cf-container">
+{{#if cfService.new_fields}}
+  <div class="ui two column grid cf-container inline">
     <div class="column">
       <div class="ui raised segment">
         <a class="ui red ribbon label"> {{cfService.field_header}} </a>
-        {{#each cfService.cf_obj as | field | }}
+        {{#each cfService.new_fields as | field | }}
           <div class='cf-comp'>
             <span>  <i>{{ field }} </i></span>
           </div>
