@@ -88,7 +88,6 @@ export default Ember.Service.extend({
       var self = this;
       self.set('field_header',  '');
       self.set('render_Obj', '');
-      self.set('cf_types',  []);
       self.set('cf_obj',  {});
       self.set('new_fields',  []);
   }
