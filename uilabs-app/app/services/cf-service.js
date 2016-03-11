@@ -58,7 +58,7 @@ export default Ember.Service.extend({
     self.set('render_Obj', self.get('cf_obj.slt_fields'));
   },
 
-  updateCfObj: function( obj ){console.log(obj);
+  updateCfObj: function( obj ){
     var self = this,
     field = 'cf_obj.'+obj.type+'_fields';
     self.set('render_Obj', self.get(field));
