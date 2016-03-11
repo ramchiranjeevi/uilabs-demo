@@ -6,14 +6,14 @@ export default Ember.Controller.extend({
 
     selected_type: 'Single line text',
 
-    field_types: [ {key: 'field', value: "Single line text", type: 'slt'},  // No I18N
-                    {key: 'field', value: "Multi line text", type: 'mlt'}, // No I18N
-                    {key: 'field', value: "Number", type: 'number'}, // No I18N
-                    {key: 'field', value: "Email", type: 'email'}, // No I18N
-                    {key: 'field', value: "Phone", type: 'ph'}, // No I18N
-                    {key: 'field', value: "Date & Time", type: 'date'},  // No I18N
-                    {key: 'field', value: "Yes/No", type: 'yn'}, // No I18N
-                    {key: 'field', value: "Choice", type: 'ch'}
+    field_types: [ {key: 'field', value: "Single line text", type: 'slt', needToUpdate: true },  // No I18N
+                    {key: 'field', value: "Multi line text", type: 'mlt', needToUpdate: true }, // No I18N
+                    {key: 'field', value: "Number", type: 'number', needToUpdate: true }, // No I18N
+                    {key: 'field', value: "Email", type: 'email', needToUpdate: true }, // No I18N
+                    {key: 'field', value: "Phone", type: 'ph', needToUpdate: true }, // No I18N
+                    {key: 'field', value: "Date & Time", type: 'date', needToUpdate: true },  // No I18N
+                    {key: 'field', value: "Yes/No", type: 'yn', needToUpdate: true }, // No I18N
+                    {key: 'field', value: "Choice", type: 'ch', needToUpdate: true }
                   ],
 
       yesOrNo_Obj: [ {key: 'yesOrNo', value: 'Yes'}, // No I18N

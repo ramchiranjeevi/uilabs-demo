@@ -16,7 +16,7 @@
     {{#each cfService.render_Obj as | field |}}
       <div class="column row">
         <div class="column fluid"> {{cf-label value=field.label}}</div>
-        <div class="column fluid"> {{component field.type place_holder=field.text model=field value=field.value }}</div>
+        <div class="column fluid"> {{component field.type place_holder=field.text obj=field model=field.model def_value=field.def_value value=field.value }}</div>
       </div>
     {{/each}}
 

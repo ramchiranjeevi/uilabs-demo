@@ -8,7 +8,7 @@ export default Ember.Component.extend({
 
   keyUp( e ){
     var self = this;
-    self.set('model.value', e.target.value);
+    self.set('obj.value', e.target.value);
   }
 
 

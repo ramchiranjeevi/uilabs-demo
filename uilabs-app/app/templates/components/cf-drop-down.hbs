@@ -3,6 +3,6 @@
 
 <div class="menu">
   {{#each model as |item|}}
-      <div class="item" data-value="{{item.value}}" {{action 'change' item}}>{{item.value}}</div>
+      <div class="{{if item.isHeader 'header' 'item'}}" data-value="{{item.value}}" {{action 'change' item}}>{{item.value}}</div>
   {{/each}}
 </div>
