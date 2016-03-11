@@ -5,7 +5,7 @@ export default Ember.Component.extend({
     filesCount: 0,
     initialization: function(){
         // Dynamic service injection handled here...
-        this.set( "requiredService", Ember.inject.service( this.get("serviceName") ));
+        this.set( "requiredService", Ember.inject.service( "upload-dialogoptions" ));
 
         // Initial files count updated here...
         this.send( "_updateFileCount", this.get("requiredService.filesList").length );

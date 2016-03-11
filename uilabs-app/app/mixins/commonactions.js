@@ -99,7 +99,7 @@ export default Ember.Mixin.create({
             CustomDialog.hide(dialogInstance);
         },
         createFolderFailure(){
-            alert( "Cancelled Successfully. :(" );
+            // alert( "Cancelled Successfully. :(" );
         }
     }
 });

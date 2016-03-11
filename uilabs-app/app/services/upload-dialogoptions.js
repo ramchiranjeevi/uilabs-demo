@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Service.extend({
     dialogObject: {},
     filesList: [],
+    dialogObject: '',
     init(){
         var _this = this;
 
@@ -12,7 +13,7 @@ export default Ember.Service.extend({
             successLabel: "Start Upload",
             width: 550,
             buttons: {
-                success(){
+                Upload(){
                     console.log( "succeeded!" );
                 },
                 cancel(){
