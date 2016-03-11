@@ -34,9 +34,10 @@ export default Ember.Component.extend( MenuMixin, {
   //CLICK EVENT ACTION HANDLER
 
   click(event){
-    var self = this;
     event.stopPropagation();
-    var menuAction = self.get('node.action');
+    var self = this,
+    tabIndex = event.target.parentElement.tabIndex;
+    var menuAction = self.get('menuNode')[tabIndex].action;
     if(menuAction !== "")
     {
       self.send(menuAction);
@@ -51,26 +52,38 @@ export default Ember.Component.extend( MenuMixin, {
     $ = Ember.$,
     targetId = event.target.id,
     targetChildren = event.target.children,
-    targetParent = "";
-    if(targetId === "")   //GET TARGET PARENT MENU SUB ELEMENT
-    {
-      targetParent = event.target.parentElement;
-      targetId = targetParent.id;
-      targetChildren = targetParent.children;
-    }
-    if(targetChildren.length === 4)   //GET TARGET SUBMENU FROM MENU WHICH HAS CHILDREN
-    {
-      targetChildren = targetChildren[3].id.split('_')[0];
-      if(targetChildren === targetId)
+    targetParent = event.target.parentElement;
+    if(targetId.split('_').length !== 1 || targetParent.id.split('_').length !== 1){  //IF SUBMENU TARGETED
+      if(targetId === "")          //IF TARGETED ELEMENT IS CHILDREN
       {
-        self.send("showSubMenu", targetId);
+        targetId = targetParent.id.split('_')[0];
       }
+      else {            //IF TARGETED ELEMENT IS PARENT
+        targetId = targetId.split('_')[0];
+      }
+      self.send("showSubMenu", targetId);
     }
-    else    //GET TARGET MENU WHICH HAS NO CHILDREN
-    {
-      if(targetChildren !== targetId)
+    else {          //IF MENU TARGETED
+      if(targetId === "")   // IF TARGETED ELEMENT IS CHILDREN
       {
-        $(".ui.vertical.menu.submenu").css({'display' : 'none'});
+        targetParent = event.target.parentElement;
+        targetId = targetParent.id;
+        targetChildren = targetParent.children;
+      }
+      if(targetChildren.length === 4)   //IF TARGETED ELEMENT IS PARENT WHICH HAS CHILDREN OBJ
+      {
+        targetChildren = targetChildren[3].id.split('_')[0];
+        if(targetChildren === targetId)
+        {
+          self.send("showSubMenu", targetId);
+        }
+      }
+      else    //IF TARGETED ELEMENT IS PARENT WHICH HAS NO CHILDREN OBJ
+      {
+        if(targetChildren !== targetId)
+        {
+          $(".ui.vertical.menu.submenu").css({'display' : 'none'});
+        }
       }
     }
   },

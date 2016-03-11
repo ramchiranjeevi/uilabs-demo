@@ -53,6 +53,27 @@ export default Ember.Mixin.create({
     coOwnerAction: function(){
       alert('Co-Owner');
     },
+
+    openDocumentAction: function(){
+      alert('open Document');
+    },
+
+    openImageAction: function(){
+      alert('open Image');
+    },
+
+    editAction: function(){
+      alert('Edit More');
+    },
+
+    languageAction: function(){
+      alert('Language More');
+    },
+
+    settingsAction: function(){
+      alert('Settings More');
+    }
+
   }
 
 });
