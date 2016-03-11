@@ -75,7 +75,6 @@ export default Ember.Component.extend( MenuMixin, {
       {
         self.toggleProperty('isShowSubMenu');
         $(".ui.vertical.menu.submenu").css({'display' : 'none'});
-        console.log('hide');
       }
     }
   },
@@ -84,15 +83,7 @@ export default Ember.Component.extend( MenuMixin, {
     showSubMenu:function(toggleId)
     {
       var self = this,
-      $ = Ember.$,
-      subLen = toggleId.split('_').length;
-      if(subLen !== 1)
-      {
-        $("#"+toggleId+"_div").css("display","block");
-        console.log('show');
-        return;
-      }
-  //    toggleId = toggleId.split('_')[0];
+      $ = Ember.$;
       self.get('childrenObj').forEach(function (obj){
         if(obj.id === toggleId)
         {
