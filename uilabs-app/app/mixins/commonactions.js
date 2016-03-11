@@ -1,6 +1,8 @@
 import Ember from 'ember';
+import CustomDialog from '../utils/custom-dialog';
 
 export default Ember.Mixin.create({
+    serviceObject: '',
     actions: {
     // COMMON ARROW ACTION HANDLER
         arrowActions( event, pressedKey, viewType ){
@@ -93,8 +95,8 @@ export default Ember.Mixin.create({
                 return true;
             }
         },
-        createFolderSuccess(){
-            alert( "Hurrah! Created Successfully." );
+        createFolderSuccess( dialogInstance ){
+            CustomDialog.hide(dialogInstance);
         },
         createFolderFailure(){
             alert( "Cancelled Successfully. :(" );

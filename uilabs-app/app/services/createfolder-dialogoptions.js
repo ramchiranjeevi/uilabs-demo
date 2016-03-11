@@ -6,6 +6,7 @@ export default Ember.Service.extend( commonActionsMixin, {
     folderName: "Untitled Folder",
     isError: false,
     errorMessage: "",
+    dailogInstance: '',
     init(){
         var _this = this;
 
@@ -14,6 +15,7 @@ export default Ember.Service.extend( commonActionsMixin, {
             buttons: {
                 success(){
                     var validate = _this.get("actions").validateUserInput( _this.get("folderName") );
+
                     if( validate === "empty" ){
                         _this.set("isError", true);
                         _this.set("errorMessage", "Name cannot be an empty!");
@@ -24,11 +26,11 @@ export default Ember.Service.extend( commonActionsMixin, {
                     }
                     else{
                         _this.set("isError", false);
-                        _this.get("actions").createFolderSuccess();
+                        _this.get("actions").createFolderSuccess( _this.get("dailogInstance") );
                     }
                 },
                 cancel(){
-                    _this.get("actions").createFolderFailure();
+                    _this.get("actions").createFolderFailure( _this.get("dailogInstance") );
                 }
             }
         });

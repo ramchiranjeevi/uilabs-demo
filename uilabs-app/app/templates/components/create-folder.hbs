@@ -1,6 +1,8 @@
 <div class="ui left corner labeled input {{if requiredService.isError 'error'}}">
-
-    <input type="text" placeholder="Enter Folder Name..." value="{{requiredService.folderName}}">
+    {{input type='text'
+            value=(readonly requiredService.folderName)
+            keyUp=(action 'updateFolderName' this)
+            insert-newline=(action 'updateFolderName' target.value)}}
     <div class="ui left corner label">
         <i class="asterisk icon"></i>
     </div>

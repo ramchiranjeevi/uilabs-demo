@@ -31,6 +31,7 @@ Router.map(function() {
   this.route('service');
   this.route('date-picker');
 
+  this.route('modal');
 });
 
 export default Router;
