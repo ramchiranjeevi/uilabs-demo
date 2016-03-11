@@ -52,13 +52,13 @@ export default Ember.Component.extend( MenuMixin, {
     targetId = event.target.id,
     targetChildren = event.target.children,
     targetParent = "";
-    if(targetId === "")   //GET TARGET PARENT ELEMENT
+    if(targetId === "")   //GET TARGET PARENT MENU SUB ELEMENT
     {
       targetParent = event.target.parentElement;
       targetId = targetParent.id;
       targetChildren = targetParent.children;
     }
-    if(targetChildren.length === 4)   //GET TARGET SUBMENU
+    if(targetChildren.length === 4)   //GET TARGET SUBMENU FROM MENU WHICH HAS CHILDREN
     {
       targetChildren = targetChildren[3].id.split('_')[0];
       if(targetChildren === targetId)
@@ -66,7 +66,7 @@ export default Ember.Component.extend( MenuMixin, {
         self.send("showSubMenu", targetId);
       }
     }
-    else
+    else    //GET TARGET MENU WHICH HAS NO CHILDREN
     {
       if(targetChildren !== targetId)
       {
