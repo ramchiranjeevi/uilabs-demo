@@ -18,9 +18,9 @@ export default Ember.Component.extend( MenuMixin, {
   }.property("node.children"),
 
   didInsertElement(){
-    var self = this,
-    $ = Ember.$;
-    self.$("#createNew").attr({ tabindex: 1}), self.$("#createNew").focus();
+    var self = this;
+    //    $ = Ember.$;
+    //    self.$("#createNew").attr({ tabindex: 1}), self.$("#createNew").focus();
     var menuObj = self.get('menuNode');
     self.set('menuObj', menuObj);
     self.get("menuObj").forEach(function (obj){
@@ -46,13 +46,21 @@ export default Ember.Component.extend( MenuMixin, {
   // MOUSEMOVE EVENT ACTION HANDLER
 
   mouseMove(event){
-    event.stopPropagation();
+    //    event.stopPropagation();
     var self = this,
     $ = Ember.$,
     targetId = event.target.id,
     targetChildren = event.target.children,
+    targetParent = "",
     isShowSubMenu =  self.get("isShowSubMenu");
-    if(targetChildren.length === 4)
+
+    if(targetId === "")   //GET TARGET PARENT ELEMENT
+    {
+      targetParent = event.target.parentElement;
+      targetId = targetParent.id;
+      targetChildren = targetParent.children;
+    }
+    if(targetChildren.length === 4)   //GET TARGET SUBMENU
     {
       targetChildren = targetChildren[3].id.split('_')[0];
       if( !isShowSubMenu && targetChildren === targetId)
@@ -67,24 +75,32 @@ export default Ember.Component.extend( MenuMixin, {
       {
         self.toggleProperty('isShowSubMenu');
         $(".ui.vertical.menu.submenu").css({'display' : 'none'});
+        console.log('hide');
       }
     }
   },
-
 
   actions:{
     showSubMenu:function(toggleId)
     {
       var self = this,
-      $ = Ember.$;
+      $ = Ember.$,
+      subLen = toggleId.split('_').length;
+      if(subLen !== 1)
+      {
+        $("#"+toggleId+"_div").css("display","block");
+        console.log('show');
+        return;
+      }
+  //    toggleId = toggleId.split('_')[0];
       self.get('childrenObj').forEach(function (obj){
         if(obj.id === toggleId)
         {
-          $("#"+toggleId+"_div").css({'display' : 'block'});
+          $("#"+toggleId+"_div").css("display","block");
         }
         else
         {
-          $("#"+obj.id+"_div").css({'display' : 'none'});
+          $("#"+obj.id+"_div").css("display","none");
         }
       }, this);
 
