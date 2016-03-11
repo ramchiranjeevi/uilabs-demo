@@ -51,9 +51,7 @@ export default Ember.Component.extend( MenuMixin, {
     $ = Ember.$,
     targetId = event.target.id,
     targetChildren = event.target.children,
-    targetParent = "",
-    isShowSubMenu =  self.get("isShowSubMenu");
-
+    targetParent = "";
     if(targetId === "")   //GET TARGET PARENT ELEMENT
     {
       targetParent = event.target.parentElement;
@@ -63,17 +61,15 @@ export default Ember.Component.extend( MenuMixin, {
     if(targetChildren.length === 4)   //GET TARGET SUBMENU
     {
       targetChildren = targetChildren[3].id.split('_')[0];
-      if( !isShowSubMenu && targetChildren === targetId)
+      if(targetChildren === targetId)
       {
-        self.toggleProperty('isShowSubMenu');
         self.send("showSubMenu", targetId);
       }
     }
     else
     {
-      if(isShowSubMenu && targetChildren !== targetId)
+      if(targetChildren !== targetId)
       {
-        self.toggleProperty('isShowSubMenu');
         $(".ui.vertical.menu.submenu").css({'display' : 'none'});
       }
     }

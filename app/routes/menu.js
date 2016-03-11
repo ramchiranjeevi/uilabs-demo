@@ -3,7 +3,9 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   model: function() {
     var name = [{'action': 'createfolderAction', 'name':'Create New', 'id': 'createNew', 'children': [], 'icon' : 'edit icon', 'tab_index' : 0 },
-    {'action': 'openAction', 'name':'Open', 'id': 'open', 'children': [], 'icon' : 'globe icon', 'tab_index' : 1 },
+    {'action': '', 'name':'Open', 'id': 'open', 'arrowClass':'dropdown', 'icon' : 'globe icon', 'isSubMenu': 'true', 'tab_index' : 1,
+    'children': [{'action':'openDocumentAction', 'name': 'Document' , 'id': 'doc_open', 'isSubMenu': 'true', 'icon' : 'globe icon', 'arrowClass':'', 'tab_index' : 0, 'type': 'oo', 'children': []},
+    {'action':'openImageAction', 'name': 'Image' , 'id': 'img_open', 'isSubMenu': 'true', 'icon' : 'settings icon', 'arrowClass':'', 'tab_index' : 1, 'type': 'wo','children': []},]},
     {'action': 'shareAction', 'name':'Share', 'id': 'share', 'isSubMenu': 'true', 'arrowClass':'dropdown', 'icon' : 'settings icon', 'tab_index' : 2,
     'children': [{'action':'readAction', 'name': 'Read Only' ,  'id': 'ro_share', 'isSubMenu': 'true', 'icon' : 'edit icon', 'arrowClass':'', 'tab_index' : 0, 'type': '.ro', 'children': []},
     {'action':'readWriteAction', 'name': 'Read Write' , 'id': 'rw_share', 'isSubMenu': 'true', 'icon' : 'globe icon', 'arrowClass':'', 'tab_index' : 1, 'type': '.rw', 'children': []},
