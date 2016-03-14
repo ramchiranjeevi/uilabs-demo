@@ -79,7 +79,7 @@ export default Ember.Service.extend({
   addCF(){
     var self = this,
     dataObj = [],
-    temp_obj = self.get('cfService.render_Obj');
+    temp_obj = self.get('render_Obj');
 
 
     temp_obj.forEach(( obj, index ) => {
@@ -87,13 +87,12 @@ export default Ember.Service.extend({
         dataObj[ index ] = obj.value;
       } else {
         alert( obj.label +'is empty!');
-
       }
     });
 
-    self.set( 'cfService.field_header', self.get('cfService.render_Obj')[0].text );
-    self.set( 'cfService.new_fields', dataObj );
-    self.get('cfService').discard();
+    self.set( 'field_header', self.get('render_Obj')[0].text );
+    self.set( 'new_fields', dataObj );
+    self.discard();
   },
 
   empty(){
@@ -106,7 +105,7 @@ export default Ember.Service.extend({
 
   discard(){
     var self = this,
-    temp_obj = self.get('cfService.render_Obj') === undefined ? self.get('render_Obj') : self.get('cfService.render_Obj');
+    temp_obj = self.get('render_Obj');
     temp_obj.forEach( (obj) => {
       if ( obj.type === 'cf-drop-down' ){
           obj.set('value', obj.def_value);
