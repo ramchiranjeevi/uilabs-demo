@@ -7,6 +7,8 @@ export default Ember.Service.extend({
   cf_types: ['slt_fields', 'mlt_fields', 'number_fields', 'email_fields', 'ph_fields', 'date_fields', 'yn_fields', 'ch_fields'],
   cf_obj: {},
   new_fields: [],
+  isMand: false,
+  reqOnUpload: true,
 
   init(){
     var self = this,

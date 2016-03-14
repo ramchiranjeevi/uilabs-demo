@@ -21,6 +21,26 @@
     {{/each}}
 
     <div class="column row">
+      <div class="column fluid"> </div>
+      <div class="column fluid">
+        <div class="ui checkbox">
+          <input type="checkbox">
+          <label>Mandatory</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="column row">
+      <div class="column fluid"> </div>
+      <div class="column fluid">
+        <div class="ui checked checkbox">
+          <input type="checkbox" checked="">
+          <label>Request On Upload/Add</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="column row">
       <div class="column fluid"></div>
       <div class="column fluid">
         <button class="ui primary button" {{action cfService.addCF}} >Save</button>
