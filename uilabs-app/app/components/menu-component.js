@@ -33,26 +33,6 @@ export default Ember.Component.extend( MenuMixin, {
     }, this);
   },
 
-  keyDown(event){
-    var self = this,
-    $ = Ember.$,
-  //  targetId = event.target.id,
-    temp_model = self.get('menuObj'),
-    temp_index = self.get('temp_index'),
-    temp_tab_model = temp_model[event.target.tabIndex],
-    current_index = temp_tab_model.tab_index,
-    temp_current_index = "",
-    target_model = "",
-    target_id = "";
-    if (event.keyCode === 40)
-    {
-      temp_current_index = temp_index + current_index;
-    }
-    target_model = temp_model[temp_current_index];
-    target_id = target_model.id;
-    $("#"+target_id).attr({ tabindex: temp_current_index});
-    $("#"+target_id).focus();
-  },
   //CLICK EVENT ACTION HANDLER
 
   click(event){
@@ -70,6 +50,40 @@ export default Ember.Component.extend( MenuMixin, {
     {
       self.send(menuAction);
     }
+  },
+
+  //KEYDOWN EVENT ACTION HANDLER
+
+  keyDown(event){
+    var self = this,
+    $ = Ember.$,
+    temp_model = self.get('menuObj'),
+    temp_index = self.get('temp_index'),
+    temp_tab_model = temp_model[event.target.tabIndex],
+    current_index = temp_tab_model.tab_index,
+    temp_current_index = "",
+    target_model = "",
+    target_id = "";
+    if (event.keyCode === 40)
+    {
+      temp_current_index = temp_index + current_index;
+      if(temp_current_index === temp_model.length)
+      {
+        temp_current_index = 0;
+      }
+    }
+    if (event.keyCode === 38)
+    {
+      temp_current_index = current_index - temp_index;
+      if(temp_current_index === -1)
+      {
+        temp_current_index = temp_model.length - 1;
+      }
+    }
+    target_model = temp_model[temp_current_index];
+    target_id = target_model.id;
+    $("#"+target_id).attr({ tabindex: temp_current_index});
+    $("#"+target_id).focus();
   },
 
   // MOUSEMOVE EVENT ACTION HANDLER
