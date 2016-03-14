@@ -41,8 +41,6 @@
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
     "ember-i18n": "4.1.2",
-    "ember-moment": "4.1.0",
-    "moment": "2.11.2",
     "moment-timezone": "0.5.0",
     "semantic-ui-ember": "0.9.3",
     "ui-lab": "git+http://git@git/eventz/ui-lab.git"

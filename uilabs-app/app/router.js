@@ -29,7 +29,7 @@ Router.map(function() {
   this.route('dropdown');
   this.route('closer-actions');
   this.route('service');
-  this.route('date-picker');
+  this.route('datePicker');
 
   this.route('modal');
 });

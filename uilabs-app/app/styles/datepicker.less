@@ -1,0 +1,138 @@
+/* For Date picker */
+
+.list-unstyled {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+}
+
+.bootstrap-datetimepicker-widget {
+ padding: 0;
+ .prev, .next, .picker-switch:not(.accordion-toggle) {
+  border: 0;
+  padding: @4px;
+  background: transparent;
+  &:hover {
+   cursor: pointer;
+   background-color: @strongTransparentBlack;
+  }
+  &.disabled:hover {
+   background: transparent;
+  }
+ }
+ .prev, .next {
+  width: 32px;
+ }
+ table {
+  font-size: @12px;
+  thead {
+   &:after {
+    content: "";
+    display: block;
+    height: 4px;
+   }
+   tr:nth-of-type(2) {
+    background: @strongTransparentBlack;
+    th {
+     border-top: 4px solid @white !important;
+    }
+   }
+  }
+  td,th {
+   border-radius: 0;
+   padding: @4px @7px;
+   border: 1px solid @transparentBlack;
+   text-align: center;
+  }
+  td span.month, span.year, span.decade {
+   display: inline-block;
+   height: 48px;
+   width: 52px;
+   line-height: unit( (48 / @emSize), rem);
+   color: @textColor;
+   &:hover, &.active {
+    background-color: @strongTransparentBlack;
+   }
+   &:hover {
+    cursor: pointer;
+   }
+   &.disabled {
+    background: transparent;
+    color: @unselectedTextColor;
+    &:hover {
+     cursor: not-allowed;
+    }
+   }
+  }
+ }
+
+
+ .datepicker-months, .datepicker-years, .datepicker-decades {
+  td {
+   padding: @4px @2px;
+  }
+ }
+ .datepicker-decades td .decade {
+  width: 104px;
+ }
+ .datepicker-decades td span:not(.decade) {
+  width: auto;
+  height: auto;
+ }
+ td {
+  &.today {
+   box-shadow: inset 0 0 1px 0 @primaryColor;
+   position: relative;
+   &:before {
+    content: '';
+    display: inline-block;
+    border-width: 0 0 8px 8px;
+    border-color: transparent;
+    border-style: solid;
+    border-bottom-color: @primaryColor;
+    border-top-color: transparent;
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+   }
+  }
+  &.marked, &.day:hover {
+   background: lighten(@primaryColor, 45%);
+   cursor: pointer;
+  }
+  &.active, &.active:hover {
+   background: @primaryColor;
+   color: @white;
+  }
+  &.disabled {
+   &:hover {
+    background: transparent;
+    cursor: not-allowed;
+   }
+  }
+  &.new {
+   opacity: .5;
+  }
+ }
+
+ .disabled {
+  background: transparent;
+  color: @unselectedTextColor;
+  &:hover {
+   cursor: not-allowed;
+  }
+ }
+ .icon.arrow {
+  display: inline-block;
+  width: 2em;
+  height: 1.8em;
+  font-family: 'Icons';
+  text-align: center;
+  &.left:before {
+   content: "\f104";
+  }
+  &.right:before {
+   content: "\f105";
+  }
+ }
+}
