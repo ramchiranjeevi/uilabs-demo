@@ -36,7 +36,13 @@ export default Ember.Component.extend( MenuMixin, {
   click(event){
     event.stopPropagation();
     var self = this,
-    tabIndex = event.target.parentElement.tabIndex;
+    tabIndex = "";
+    if(event.target.id === ""){
+      tabIndex = event.target.parentElement.tabIndex;
+    }
+    else {
+      tabIndex = event.target.tabIndex;
+    }
     var menuAction = self.get('menuNode')[tabIndex].action;
     if(menuAction !== "")
     {
