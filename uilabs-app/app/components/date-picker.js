@@ -8,7 +8,9 @@ export default Ember.Component.extend({
 	attributeBindings: ['placeholder', 'placeholderTranslation', 'readonly'],
 
 	value: null,
+
 	moment:'',
+
 	semantic: true,
 
 	minDate: moment().startOf('day'),

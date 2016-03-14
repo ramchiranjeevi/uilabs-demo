@@ -33,26 +33,26 @@ module.exports = function(defaults) {
       development: app.bowerDirectory + '/Squire/build/squire-raw.js',
       production: app.bowerDirectory + '/Squire/build/squire.js'
     });
-
-  app.import({
-      development: app.bowerDirectory + '/dateTimePicker/src/js/bootstrap-datetimepicker.js',
-      production: app.bowerDirectory + '/dateTimePicker/src/js/bootstrap-datetimepicker.js'
-    });
-
-  app.import({
-      development: app.bowerDirectory + '/dateTimePicker/src/less/_bootstrap-datetimepicker.less',
-      production: app.bowerDirectory + '/dateTimePicker/src/less/_bootstrap-datetimepicker.less'
-    });
-
-  app.import({
-		development: app.bowerDirectory + '/semantic-dateTimePicker/src/js/bootstrap-datetimepicker.js',
-		production: app.bowerDirectory + '/semantic-dateTimePicker/build/js/bootstrap-datetimepicker.min.js'
-	});
-
-	app.import({
-		development: app.bowerDirectory + '/semantic-dateTimePicker/build/css/bootstrap-datetimepicker.css',
-		production: app.bowerDirectory + '/semantic-dateTimePicker/build/css/bootstrap-datetimepicker.min.css'
-	});
+  //
+  // app.import({
+  //     development: app.bowerDirectory + '/dateTimePicker/src/js/bootstrap-datetimepicker.js',
+  //     production: app.bowerDirectory + '/dateTimePicker/src/js/bootstrap-datetimepicker.js'
+  //   });
+  //
+  // app.import({
+  //     development: app.bowerDirectory + '/dateTimePicker/src/less/_bootstrap-datetimepicker.less',
+  //     production: app.bowerDirectory + '/dateTimePicker/src/less/_bootstrap-datetimepicker.less'
+  //   });
+  //
+  // app.import({
+	// 	development: app.bowerDirectory + '/semantic-dateTimePicker/src/js/bootstrap-datetimepicker.js',
+	// 	production: app.bowerDirectory + '/semantic-dateTimePicker/build/js/bootstrap-datetimepicker.min.js'
+	// });
+  //
+	// app.import({
+	// 	development: app.bowerDirectory + '/semantic-dateTimePicker/build/css/bootstrap-datetimepicker.css',
+	// 	production: app.bowerDirectory + '/semantic-dateTimePicker/build/css/bootstrap-datetimepicker.min.css'
+	// });
 
 
 	trees.push(app.toTree());
