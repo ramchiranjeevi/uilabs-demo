@@ -81,7 +81,6 @@ export default Ember.Service.extend({
     dataObj = [],
     temp_obj = self.get('render_Obj');
 
-
     temp_obj.forEach(( obj, index ) => {
       if ( obj.value ) {
         dataObj[ index ] = obj.value;

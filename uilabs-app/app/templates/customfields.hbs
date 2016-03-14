@@ -1,12 +1,12 @@
 
 {{custom-fields}}
 
-{{#if cfService.new_fields}}
+{{#if new_fields}}
   <div class="ui two column grid cf-container inline">
     <div class="column">
       <div class="ui raised segment">
-        <a class="ui red ribbon label"> {{cfService.field_header}} </a>
-        {{#each cfService.new_fields as | field | }}
+        <a class="ui red ribbon label"> {{field_header}} </a>
+        {{#each new_fields as | field | }}
           <div class='cf-comp'>
             <span>  <i>{{ field }} </i></span>
           </div>
