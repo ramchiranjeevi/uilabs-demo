@@ -13,5 +13,5 @@
     <span class="res_name_space"> {{folderItem.label}} </span>
 {{/if}}
 {{#if folderItem.children.length}}
-    {{folder-tree nameOfComponent=nameOfComponent folderTreeList=folderItem.children iconClass=iconClass isRadioType=isRadioType}}
+    {{folder-tree nameOfComponent=nameOfComponent folderTreeList=folderItem.children on-active=on-active iconClass=iconClass isRadioType=isRadioType}}
 {{/if}}

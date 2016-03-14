@@ -28,7 +28,13 @@ export default Ember.Component.extend({
             }));
         }
     },
-    "actions": {
+    mouseUp( event ){
+        event.stopPropagation();
+        if( event.target.className.indexOf("subfolder-icon") === -1 ){
+            this.sendAction("on-active", this.get("folderItem"));
+        }
+    },
+    actions: {
         toggleSubFolder(){
             if( this.get( "folderItem.treeOpened" ) ){
                 this.send("closeSubFolder");

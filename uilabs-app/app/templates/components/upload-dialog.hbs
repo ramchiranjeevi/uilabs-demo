@@ -2,19 +2,31 @@
 <div class="upload-to-placeholder">
     <div class="ui grid">
         <div class="row">
-            <div class="five wide column right aligned">Upload To:</div>
+            <div class="five wide column right aligned">
+                <span class="mid-aligned"> Upload To: </span>
+            </div>
             <div class="eight wide column">
                 <div class="ui selection dropdown">
-                    <input name="gender" type="hidden" value="default">
+                    <input name="gender" type="hidden" value="1">
                     <i class="dropdown icon"></i>
-                    <div class="default text">Select a value</div>
+                    <div class="default text">Value</div>
                     <div class="menu">
-                        <div class="item" data-value="0">Value</div>
-                        <div class="item" data-value="1">Another Value</div>
+                        {{#each requiredService.recentFolders as | folder index |}}
+                            <div class="item" data-value="{{index}}"> {{folder.name}} </div>
+                        {{/each}}
                     </div>
                 </div>
             </div>
-            <div class="three wide column">Change</div>
+            <div class="three wide column">
+                <a class="mid-aligned anchor" {{action 'showFoldersView'}}> Change </a>
+            </div>
         </div>
     </div>
+    {{#if isShowFolderList}}
+        <div class="folderTreeContainer change-folder-list">
+            <div class="folder-tree-container">
+                {{folder-tree folderTreeList=requiredService.ownedTreeList on-active=(action 'selectFolder') isRadioType=true}}
+            </div>
+        </div>
+    {{/if}}
 </div>

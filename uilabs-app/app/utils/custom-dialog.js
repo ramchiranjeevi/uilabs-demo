@@ -7,9 +7,11 @@ export default Ember.Object.create({
 
     show( innerLayout, dialogOptions ){
 
+        let app = Zoho5;
+
         let options = $.extend({
 
-            container: Zoho5.__container__,
+            container: app.__container__,
 
             innerLayout: innerLayout
 
