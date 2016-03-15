@@ -52,7 +52,7 @@ export default Ember.Component.extend( MenuMixin, {
     }
   },
 
-  //KEYDOWN EVENT ACTION HANDLER
+  //KEYBOARD NAVIGATION FOR TABINDEX AND ACTION HANDLER
 
   keyDown(event){
     var self = this,
@@ -64,20 +64,51 @@ export default Ember.Component.extend( MenuMixin, {
     temp_current_index = "",
     target_model = "",
     target_id = "";
-    if (event.keyCode === 40)
+    if(event.keyCode === 37)     //LEFT KEY ACTION HANDLER
     {
+      var sub_id = event.target.id.split("_")[0];
+      $("#"+sub_id+"_div").css("display","none");
+      temp_current_index = $("#"+sub_id)[0].tabIndex;
+      if(temp_current_index > temp_model.length)
+      {
+        return;
+      }
+    }
+    if (event.keyCode === 40)    //KEY DOWN ACTION HANDLER
+    {
+      event.stopPropagation();
       temp_current_index = temp_index + current_index;
       if(temp_current_index === temp_model.length)
       {
         temp_current_index = 0;
       }
     }
-    if (event.keyCode === 38)
+    if (event.keyCode === 38)   //KEY UP ACTION HANDLER
     {
+      event.stopPropagation();
       temp_current_index = current_index - temp_index;
       if(temp_current_index === -1)
       {
         temp_current_index = temp_model.length - 1;
+      }
+    }
+    if( event.keyCode === 13 || event.keyCode === 39)    //KEY ENTER AND RIGHT KEY ACTION HANDLER
+    {
+      event.stopPropagation();
+      var enter_model = temp_model[current_index];
+      if(enter_model.action !== "")      //KEY BOARD NAVIGATION MENU ACTION HANDLER
+      {
+        self.send(enter_model.action);
+        return;
+      }
+      else{                 // //KEY BOARD NAVIGATION SUBMENU ACTION HANDLER
+        $("#"+enter_model.id+"_div").css("display","block");
+        target_id = $("#"+enter_model.id+"_div")[0].childNodes[1].childNodes[1].id;
+        temp_current_index = $("#"+enter_model.id+"_div")[0].childNodes[1].childNodes[1].tabIndex;
+        temp_model = self.get("childrenObj");
+        $("#"+target_id).attr({ tabindex: temp_current_index});
+        $("#"+target_id).focus();
+        return;
       }
     }
     target_model = temp_model[temp_current_index];
