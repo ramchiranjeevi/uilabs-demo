@@ -13,53 +13,37 @@ export default Ember.Service.extend({
   init(){
     var self = this,
     cf_obj= {},
-    types = self.get('cf_types');
+    types = self.get('cf_types'),
+    name_field = Ember.Object.create( {'label': 'Field Name : ', 'type': 'cf-text-box', 'text': '', 'value': ''} ),
+    desc_field = Ember.Object.create( {'label': 'Description : ','type':'cf-text-area', 'text': 'Description', 'value': ''} ),
+    defVal_field = Ember.Object.create( {'label': 'Default Value : ','type':'cf-text-box', 'text': 'Default Value', 'value': ''} );
     self._super();
 
     var type_obj =  [
-                      [ Ember.Object.create({'label': 'Field Name : ', 'type': 'cf-text-box', 'text': 'Single line text', 'value': ''}),
-                        Ember.Object.create({'label': 'Description : ','type':'cf-text-area', 'text': 'Description', 'value': ''}),
-                        Ember.Object.create({'label': 'Max. Characters : ','type':'cf-text-box', 'text': '100', 'value': ''}),
-                        Ember.Object.create({'label': 'Default Value : ','type':'cf-text-box', 'text': 'Default Value', 'value': ''})
-                      ],
+                      [ name_field.set( 'text', 'Single line text' ), desc_field ,
+                        name_field.set( 'label', 'Max. Characters' ),
+                        name_field.set( 'text', '100' ), defVal_field ],
 
-                      [ Ember.Object.create({'label': 'Field Name : ', 'type': 'cf-text-box', 'text': 'Multi line text', 'value': ''}),
-                        Ember.Object.create({'label': 'Description : ','type':'cf-text-area', 'text': 'Description', 'value': ''})
-                      ],
+                      [ name_field.set( 'text', 'Multi line text' ), desc_field ],
 
-                      [ Ember.Object.create({'label': 'Field Name : ', 'type': 'cf-text-box', 'text': 'Number', 'value': ''}),
-                        Ember.Object.create({'label': 'Description : ','type':'cf-text-area', 'text': 'Description', 'value': ''}),
-                        Ember.Object.create({'label': 'Min. Value : ','type':'cf-text-box', 'text': '0', 'value': ''}),
-                        Ember.Object.create({'label': 'Max. Value : ','type':'cf-text-box', 'text': '100', 'value': ''}),
-                        Ember.Object.create({'label': 'Default Value : ','type':'cf-text-box', 'text': 'Default Value', 'value': ''}),
-                        Ember.Object.create({'label': 'No. of decimal points : ','type':'cf-drop-down', 'model': [ {value: 'Auto'}, {value: 'No decimal'}, {value: '1'},{value: '2'},{value: '3'},{value: '4'},{value: '5'}, ], 'value': 'Auto', 'def_value': 'Auto'}),
-                      ],
+                      [ name_field.set( 'text', 'Number' ), desc_field ,
+                        name_field.set( 'label', 'Min. Value' ), name_field.set( 'text', '0' ),
+                        name_field.set( 'label', 'Max. Value' ), name_field.set( 'text', '100' ), defVal_field,
+                        Ember.Object.create({'label': 'No. of decimal points : ','type':'cf-drop-down', 'model': [ {value: 'Auto'}, {value: 'No decimal'}, {value: '1'},{value: '2'},{value: '3'},{value: '4'},{value: '5'}, ], 'value': 'Auto', 'def_value': 'Auto'}) ],
 
-                      [ Ember.Object.create({'label': 'Field Name : ', 'type': 'cf-text-box', 'text': 'Email', 'value': ''}),
-                        Ember.Object.create({'label': 'Description : ','type':'cf-text-area', 'text': 'Description', 'value': ''})
-                      ],
+                      [ name_field.set( 'text', 'Email' ), desc_field ],
 
-                      [ Ember.Object.create({'label': 'Field Name : ', 'type': 'cf-text-box', 'text': 'Phone', 'value': ''}),
-                        Ember.Object.create({'label': 'Description : ','type':'cf-text-area', 'text': 'Description', 'value': ''})
-                      ],
+                      [ name_field.set( 'text', 'Phone' ), desc_field ],
 
-                      [ Ember.Object.create({'label': 'Field Name : ', 'type': 'cf-text-box', 'text': 'Date', 'value': ''}),
-                        Ember.Object.create({'label': 'Description : ','type':'cf-text-area', 'text': 'Description', 'value': ''}),
-                        Ember.Object.create({'label': 'Default Value : ','type':'cf-text-box', 'text': 'Default Value', 'value': ''}),
-                        Ember.Object.create({'label': 'Date & Time Format : ','type':'cf-drop-down', 'model': [ {value: 'Date only'}, {value: 'Date & Time'} ], 'value': 'Date only', 'def_value': 'Date only'}),
+                      [ name_field.set( 'text', 'Date' ), desc_field, defVal_field,
+                        Ember.Object.create({'label': 'Date & Time Format : ','type':'cf-drop-down', 'model': [ {value: 'Date only'}, {value: 'Date & Time'} ], 'value': 'Date only', 'def_value': 'Date only'}) ],
 
-                      ],
+                      [ name_field.set( 'text', 'Yes/No' ), desc_field,
+                        Ember.Object.create({'label': 'Default Value : ','type':'cf-drop-down', 'model': [ {value: 'Yes'}, {value: 'No'} ], 'value': 'Yes', 'def_value': 'Yes'}) ],
 
-                      [ Ember.Object.create({'label': 'Field Name : ', 'type': 'cf-text-box', 'text': 'Yes/No', 'value': ''}),
-                        Ember.Object.create({'label': 'Description : ','type':'cf-text-area', 'text': 'Description', 'value': ''}),
-                        Ember.Object.create({'label': 'Default Value : ','type':'cf-drop-down', 'model': [ {value: 'Yes'}, {value: 'No'} ], 'value': 'Yes', 'def_value': 'Yes'}),
-                      ],
-
-                      [ Ember.Object.create({'label': 'Field Name : ', 'type': 'cf-text-box', 'text': 'Choice', 'value': ''}),
-                        Ember.Object.create({'label': 'Description : ','type':'cf-text-area', 'text': 'Description', 'value': ''}),
+                      [ name_field.set( 'text', 'Choice' ), desc_field,
                         Ember.Object.create({'label': 'Display Choices : ','type':'cf-drop-down', 'model': [ {value: 'Single Choice', isHeader: true }, {value: 'Drop Down'}, {value: 'Multiple Choice', isHeader: true}, {value: 'Radio'}, {value: 'Check Box'} ], 'value': 'Drop Down', 'def_value': 'Drop Down'}),
-                        Ember.Object.create({'label': 'Choices : ','type':'cf-text-area', 'text': 'Enter the Choices in Separate lines', 'value': ''}),
-                      ],
+                        Ember.Object.create({'label': 'Choices : ','type':'cf-text-area', 'text': 'Enter the Choices in Separate lines', 'value': ''}) ],
                     ];
 
     types.forEach((obj, index) => {
