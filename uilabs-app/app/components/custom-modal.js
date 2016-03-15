@@ -35,17 +35,21 @@ export default Component.extend({
             },
             onDeny: () => {
                 this.get('buttons')[this.get('cancelLabel')]();
-            }
+            },
+            onHidden: () => {
+                this.send("hideDialog");
+            },
+            allowMultiple: true
         });
         this.send('showDialog');
     },
-
     actions: {
         showDialog(){
             this.$().modal('show');
         },
         hideDialog(){
             this.$().modal('hide');
+            this.destroy();
         }
     }
 

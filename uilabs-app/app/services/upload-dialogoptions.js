@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import CustomDialog from '../utils/custom-dialog';
 
 export default Ember.Service.extend({
     dialogObject: {},
@@ -52,12 +53,15 @@ export default Ember.Service.extend({
             width: 550,
             buttons: {
                 Upload(){
-                    console.log( "succeeded!" );
+                    CustomDialog.hide(_this.get("dailogInstance"));
                 },
                 cancel(){
-                    console.log( "cancelled!" );
+                    CustomDialog.hide(_this.get("dailogInstance"));
                 }
             }
         });
-    }.on("init")
+    }.on("init"),
+    willDestroy(){
+        console.log("destroy");
+    }
 });
