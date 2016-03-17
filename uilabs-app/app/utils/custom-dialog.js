@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import DialogComponent from '../components/custom-modal';
+import CustomDialogModal from '../components/custom-modal';
 
 const { $ } = Ember;
 
@@ -7,17 +7,17 @@ export default Ember.Object.create({
 
     show( innerLayout, dialogOptions ){
 
-        let app = Zoho5;
-
         let options = $.extend({
 
-            container: app.__container__,
+            // continer property defined by initializer...
+            container: this.get("container"),
 
+            // Layout which will be loaded inside of the dialog...
             innerLayout: innerLayout
 
-        }, dialogOptions);
+        }, dialogOptions);  // Extending with custom option for dialog...
 
-        const dialog = new DialogComponent();
+        const dialog = new CustomDialogModal();
 
         dialog.setProperties( options );
         dialog.append();

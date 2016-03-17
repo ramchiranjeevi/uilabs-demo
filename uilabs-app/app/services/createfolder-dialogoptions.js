@@ -1,38 +1,48 @@
 import Ember from 'ember';
-import commonActionsMixin from '../mixins/commonactions';
+import createfolderMixin from '../mixins/createfolder';
 
-export default Ember.Service.extend( commonActionsMixin, {
-    dialogObject: {},
-    folderName: "Untitled Folder",
-    isError: false,
-    errorMessage: "",
+export default Ember.Service.extend( createfolderMixin, {
+
+    dialogObject: '',
+    folderName: '',
+    isError: null,
+    errorMessage: '',
     dailogInstance: '',
+
     init(){
-        var _this = this;
 
-        _this.set("dialogObject", {
-            title: "Create Folder", successLabel: "Create Folder", width: 350,
+        this.set('folderName', 'Untitled Folder');
+        this.set('isError', false);
+
+        this.set('dialogObject', {
+            title: 'Create Folder',
+            width: 350,
             buttons: {
-                success(){
-                    var validate = _this.get("actions").validateUserInput( _this.get("folderName") );
-
-                    if( validate === "empty" ){
-                        _this.set("isError", true);
-                        _this.set("errorMessage", "Name cannot be an empty!");
-                    }
-                    else if( validate === "gt_15_char" ){
-                        _this.set("isError", true);
-                        _this.set("errorMessage", "Name should be less than 15 char!");
-                    }
-                    else{
-                        _this.set("isError", false);
-                        _this.get("actions").createFolderSuccess( _this.get("dailogInstance") );
-                    }
+                "Create Folder": ()=>{
+                    this.success();
                 },
-                cancel(){
-                    _this.get("actions").createFolderFailure( _this.get("dailogInstance") );
+                "Cancel": ()=>{
+                    this.createFolderFailure();
                 }
             }
         });
+    },
+    success(){
+
+        let validate = this.validateUserInput( this.get('folderName') );
+
+        if( validate === 'empty' ){
+            this.set('isError', true);
+            this.set('errorMessage', 'Name cannot be an empty!');
+        }
+        else if( validate === 'gt_15_char' ){
+            this.set('isError', true);
+            this.set('errorMessage', 'Name should be less than 15 char!');
+        }
+        else{
+            this.set('isError', false);
+            this.createFolderSuccess();
+        }
     }
+
 });

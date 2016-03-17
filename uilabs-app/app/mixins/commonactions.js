@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import CustomDialog from '../utils/custom-dialog';
 
 export default Ember.Mixin.create({
     serviceObject: '',
@@ -83,23 +82,6 @@ export default Ember.Mixin.create({
             _self.send( "deselectModels", _modelObject );  // No I18N
             selectedModel.set("is_active", true); // No I18N
             _self.set( "currentModelIndex", _modelObject.indexOf( selectedModel ) );  // No I18N
-        },
-        validateUserInput( input ){
-            if( !input ){
-                return "empty";
-            }
-            else if( input.length > 15 ){
-                return "gt_15_char";
-            }
-            else{
-                return true;
-            }
-        },
-        createFolderSuccess( dialogInstance ){
-            CustomDialog.hide(dialogInstance);
-        },
-        createFolderFailure(){
-            // alert( "Cancelled Successfully. :(" );
         }
     }
 });

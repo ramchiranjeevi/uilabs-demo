@@ -8,8 +8,8 @@ export default Component.extend({
 
     layout: layout,
     innerLayout: '',
-    classNames: ['ui', 'modal', 'small'],
-    classNameBindings: ['size'],
+    classNames: 'ui modal small'.w(),
+    classNameBindings: 'size'.w(),
     size: 'small',
     title: 'Title',
     height: 'auto',
@@ -21,34 +21,42 @@ export default Component.extend({
     cancelLabel: '',
 
     initialisation: function(){
-        let buttonLabels = Object.keys( this.get('buttons') );
 
+        let buttonLabels = Object.keys( this.get('buttons') );
         this.set( 'successLabel', buttonLabels[0] ? buttonLabels[0] : '' );
         this.set( 'cancelLabel', buttonLabels[1] ? buttonLabels[1] : '' );
+
     }.on('didReceiveAttrs'),
 
     didInsertElement(){
+
         this.$().modal({
-            onApprove: () => {
+
+            allowMultiple: true,
+            onApprove: ()=>{
                 this.get('buttons')[this.get('successLabel')]();
                 return false;
             },
-            onDeny: () => {
+
+            onDeny: ()=>{
                 this.get('buttons')[this.get('cancelLabel')]();
             },
-            onHidden: () => {
-                this.send("hideDialog");
-            },
-            allowMultiple: true
+
+            onHidden: ()=>{
+                this.send("destroy");
+            }
         });
         this.send('showDialog');
     },
+
     actions: {
         showDialog(){
             this.$().modal('show');
         },
         hideDialog(){
             this.$().modal('hide');
+        },
+        destroy(){
             this.destroy();
         }
     }
