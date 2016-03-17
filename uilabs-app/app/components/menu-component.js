@@ -25,17 +25,17 @@ export default Ember.Component.extend( MenuMixin, {
     $("#createNew").focus();
     var menuObj = self.get('menuNode');
     self.set('menuObj', menuObj);
-    var top_y = "";
-    var left_x = "";
-    if(event.clientY !== undefined || event.clientX !== undefined)
-    {
-      top_y = event.clientY;      //Have to get from contextmenu event handler
-      left_x = event.clientX;     //Have to get from contextmenu event handler
-    }
-    else{
-      top_y = "20px";
-      left_x = "0px";
-    }
+    var top_y = "20px";
+    var left_x = "0px";
+    // if(event.clientY !== undefined || event.clientX !== undefined)
+    // {
+    //   top_y = event.clientY;      //Have to get from contextmenu event handler
+    //   left_x = event.clientX;     //Have to get from contextmenu event handler
+    // }
+    // else{
+    //   top_y = "20px";
+    //   left_x = "0px";
+    // }
     self.get("menuObj").forEach(function (obj){
       if(obj.children.length !== 0)
       {
