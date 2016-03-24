@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import CustomDialog from '../utils/custom-dialog';
-import uploadObjects from '../utils/upload-options';
 
 const { Object, Mixin } = Ember;
 
