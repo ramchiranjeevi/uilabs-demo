@@ -1,11 +1,11 @@
 import Ember from 'ember';
+import uploadMixin from '../mixins/upload';
 
-export default Ember.Component.extend({
-    requiredService: null,
+export default Ember.Component.extend( uploadMixin, {
     isShowFolderList: false,
     initialization: function(){
         // Dynamic service injection handled here...
-        this.set( "requiredService", Ember.inject.service( "upload-dialogoptions" ));
+        // this.set( "requiredService", Ember.inject.service( "upload-dialogoptions" ));
     }.on("didReceiveAttrs"),
 
     didInsertElement(){

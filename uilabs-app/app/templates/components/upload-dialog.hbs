@@ -11,7 +11,7 @@
                     <i class="dropdown icon"></i>
                     <div class="default text">Value</div>
                     <div class="menu">
-                        {{#each requiredService.recentFolders as | folder index |}}
+                        {{#each recentFolders as | folder index |}}
                             <div class="item" data-value="{{index}}"> {{folder.name}} </div>
                         {{/each}}
                     </div>
@@ -25,7 +25,7 @@
     {{#if isShowFolderList}}
         <div class="folderTreeContainer change-folder-list">
             <div class="folder-tree-container">
-                {{folder-tree folderTreeList=requiredService.ownedTreeList on-active=(action 'selectFolder') isRadioType=true}}
+                {{folder-tree folderTreeList=ownedTreeList on-active=(action 'selectFolder') isRadioType=true}}
             </div>
         </div>
     {{/if}}
