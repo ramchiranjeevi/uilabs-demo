@@ -2,4 +2,11 @@
 {{#ui-button type="primary" clicked="showUploadDialog"}}Upload Dialog{{/ui-button}}
 <div class="container">
     {{outlet}}
+    {{#if showProgress}}
+        <div class="upload_progressbar_cont">
+            {{#each fileObjects as | file |}}
+                {{progress-bar value=file.value size=file.size color=file.color label=file.label className=file.className showPercentInBar=file.showPercentInBar}}
+            {{/each}}
+        </div>
+    {{/if}}
 </div>

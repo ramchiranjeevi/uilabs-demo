@@ -8,10 +8,18 @@ export default Ember.Component.extend({
     color: "",
     className: "",
     showPercentInBar: false,
-    classNameBindings: [ "sizeClass", "colorClass", "customClass" ],
+    classNameBindings: [ "sizeClass", "colorClass", "customClass", "stateClass" ],
     attributeBindings: ["dataPercent:data-percent"],
     dataPercent: Ember.computed.alias('value'),
     sizeClass: Ember.computed.alias('size'),
     colorClass: Ember.computed.alias('color'),
-    customClass: Ember.computed.alias('className')
+    customClass: Ember.computed.alias('className'),
+    stateClass: Ember.computed('value', function() {
+        if( this.get( "value" ) < 100 ){
+            return "success";
+        }
+        else{
+            return "indicating active";
+        }
+    })
 });

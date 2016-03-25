@@ -7,12 +7,18 @@
             </div>
             <div class="eight wide column">
                 <div class="ui selection dropdown">
-                    <input name="gender" type="hidden" value="1">
+                    <input name="gender" type="hidden" value='test'>
                     <i class="dropdown icon"></i>
-                    <div class="default text">Value</div>
+                    <div class="text">
+                        {{#if selectFolder}}
+                            {{selectFolder.label}}
+                        {{else}}
+                            Value
+                        {{/if}}
+                    </div>
                     <div class="menu">
                         {{#each recentFolders as | folder index |}}
-                            <div class="item" data-value="{{index}}"> {{folder.name}} </div>
+                            <div class="item" data-value="{{index}}"> {{folder.label}} </div>
                         {{/each}}
                     </div>
                 </div>

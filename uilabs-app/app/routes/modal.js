@@ -1,6 +1,6 @@
 import Ember from 'ember';
-import createFolderMixin from '../mixins/createfolder';
-import uploadMixin from '../mixins/upload';
+import CreateFolderMixin from '../mixins/createfolder';
+import UploadMixin from '../mixins/upload';
 
-export default Ember.Route.extend( createFolderMixin, uploadMixin, {
+export default Ember.Route.extend( CreateFolderMixin, UploadMixin, {
 });

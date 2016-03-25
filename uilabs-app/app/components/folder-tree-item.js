@@ -5,8 +5,13 @@ export default Ember.Component.extend({
     iconClass: "",
     isRadioType: false,
     didInsertElement(){
-        if( !this.get("folderItem.treeOpened") ){
-            this.send("closeSubFolder");
+        if( !this.get("folderItem.treeOpened") && this.get("folderItem.hasSubfolder") ){
+            console.time( "start" );
+            Ember.run.next(() => {
+                console.log("ok");
+                this.send("closeSubFolder");
+            });
+            console.timeEnd( "start" );
         }
     },
     doubleClick( event ){

@@ -1,20 +1,24 @@
 import Ember from 'ember';
-import CustomDialog from '../utils/custom-dialog';
+import CustomDialogUtil from '../utils/custom-dialog';
 
 const { Object, Mixin } = Ember;
 
 export default Mixin.create({
 
     dialogInstance: null,
-    recentFolders: ['Personal Folder', 'Share Folder', 'Org Shared Folder', 'Favorite Folder'],
+    selectedFolder: null,
     ownedTreeList: [],
+    filesList: [],
+    fileObjects: [],
+    showProgress: false,
+    recentFolders: ['Personal Folder', 'Share Folder', 'Org Shared Folder', 'Favorite Folder'],
 
     init(){
 
         this._super(...arguments);
 
-        let newArray = this.get("recentFolders").map( (folderName) => {
-            return Object.create({"name": folderName});
+        let newArray = this.get("recentFolders").map( (folderName, index) => {
+            return Object.create({"label": folderName, "id":`recent_${index}`});
         });
 
         this.set("recentFolders", newArray);
@@ -48,15 +52,24 @@ export default Mixin.create({
         ]);
     },
     uploadSuccessCallback(){
-        CustomDialog.hide(this.get("dialogInstance"));
+        CustomDialogUtil.hide(this.get("dialogInstance"));
+        this.showProgressBar();
     },
     uploadFailureCallback(){
-        CustomDialog.hide(this.get("dialogInstance"));
+        CustomDialogUtil.hide(this.get("dialogInstance"));
     },
+    showProgressBar(){
 
+        let filesArray = this.get("filesList").map(( file ) => {
+            let { name, size, webkitRelativePath } = file;
+            return Object.create({ "label": name, "size": size, "path": webkitRelativePath, "color": 'teal', "value": 0, "showPercentInBar": true });
+        });
+
+        this.set( "fileObjects", filesArray );
+        this.set( "showProgress", true );
+    },
     actions: {
         showUploadDialog(){
-
             let dialogOptions = {
                 title: "Upload File",
                 buttons: {
@@ -68,8 +81,7 @@ export default Mixin.create({
                     }
                 }
             };
-
-			let dialogObject = CustomDialog.show( 'upload-dialog', dialogOptions);
+			let dialogObject = CustomDialogUtil.show( 'upload-dialog', dialogOptions);
             this.set("dialogInstance", dialogObject);
 		}
     }

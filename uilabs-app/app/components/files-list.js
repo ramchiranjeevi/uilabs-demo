@@ -1,14 +1,15 @@
 import Ember from 'ember';
+import UploadMixin from '../mixins/upload';
 
-export default Ember.Component.extend({
-    requiredService: null,
+export default Ember.Component.extend( UploadMixin, {
+    // requiredService: null,
     filesCount: 0,
     initialization: function(){
         // Dynamic service injection handled here...
-        this.set( "requiredService", Ember.inject.service( "upload-dialogoptions" ));
+        // this.set( "requiredService", Ember.inject.service( "upload-dialogoptions" ));
 
         // Initial files count updated here...
-        this.send( "_updateFileCount", this.get("requiredService.filesList").length );
+        this.send( "_updateFileCount", this.get("filesList").length );
     }.on("didReceiveAttrs"),
 
     labelOfFileCount: Ember.computed('filesCount', function() {
@@ -24,17 +25,17 @@ export default Ember.Component.extend({
                 filesArray.push(fileObjects[i]);
             }
             // Updating newly added files in service's files Array...
-            this.get("requiredService.filesList").unshiftObjects( filesArray );
+            this.get("filesList").unshiftObjects( filesArray );
 
             // Final files count updated here...
-            this.send( "_updateFileCount", this.get("requiredService.filesList").length );
+            this.send( "_updateFileCount", this.get("filesList").length );
         },
         removeFile( fileObject ){
             // Removing file from the service's files Array...
-            this.get("requiredService.filesList").removeObject( fileObject );
+            this.get("filesList").removeObject( fileObject );
 
             // Final files count updated here...
-            this.send( "_updateFileCount", this.get("requiredService.filesList").length );
+            this.send( "_updateFileCount", this.get("filesList").length );
         },
         _updateFileCount( count ){
             this.set("filesCount", count);
