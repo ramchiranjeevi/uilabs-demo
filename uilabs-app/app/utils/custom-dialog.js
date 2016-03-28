@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import CustomDialogModal from '../components/custom-modal';
+import CustomDialogModal from 'uilabs-addon/components/ui-custom-modal';
 
 const { $ } = Ember;
 

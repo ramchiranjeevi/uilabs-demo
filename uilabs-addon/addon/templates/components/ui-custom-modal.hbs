@@ -1,0 +1,27 @@
+{{#if title}}
+	<div class="header">
+		<div class="ui flex space between vCenter">
+			{{title}}
+		</div>
+	</div>
+{{/if}}
+<div class="content">
+	{{#if innerLayout}}
+		{{component innerLayout model=childModel}}
+	{{/if}}
+	{{yield}}
+</div>
+
+<div class="actions right aligned">
+	<div class="custom-footer" ></div>
+    {{#if cancelLabel}}
+		<div class="ui basic cancel button">
+			{{cancelLabel}}
+		</div>
+    {{/if}}
+    {{#if successLabel}}
+		<div class="ui ok primary right button">
+			{{successLabel}}
+		</div>
+    {{/if}}
+</div>

@@ -6,7 +6,7 @@ export default Ember.Component.extend( UploadMixin, {
 
     didInsertElement(){
         Ember.$('.ui.dropdown').dropdown({
-            onChange: (index, value, selectedItem) => {
+            onChange: (index) => {
                 this.send("selectFolder", this.get("recentFolders")[index]);
             }
         });
