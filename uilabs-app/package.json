@@ -10,7 +10,9 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember test"
+    "test": "ember test",
+    "preinstall": "npm link ../uilabs-addon",
+    "preupdate": "npm link ../uilabs-addon"
   },
   "repository": "",
   "engines": {
@@ -43,6 +45,7 @@
     "ember-i18n": "4.1.2",
     "moment-timezone": "0.5.0",
     "semantic-ui-ember": "0.9.3",
-    "ui-lab": "git+http://git@git/eventz/ui-lab.git"
+    "ui-lab": "git+http://git.csez.zohocorpin.com/eventz/ui-lab.git#master",
+    "uilabs-addon": "0.0.0"
   }
 }

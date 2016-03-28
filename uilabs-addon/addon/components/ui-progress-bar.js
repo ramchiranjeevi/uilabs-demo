@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+    didInsertElement() {
+	console.log('Progress bar component DIE');
+    },
     value: 0,
     label: "",
     classNames: ["ui", "progress"],

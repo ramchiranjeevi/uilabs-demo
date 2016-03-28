@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import ProgressBar from '../components/progress-bar';
+import ProgressBar from '../components/ui-progress-bar';
 
 const { Object, $ } = Ember;
 

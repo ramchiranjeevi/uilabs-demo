@@ -13,6 +13,7 @@ export default Component.extend({
   actions: {
     onSave() {
       this.attrs.save(this.get('editedName')).then(() => {
+        console.log('3');
         this.set('isEditing', false);
         console.log('inside success(then)');
         this.set('error', null);
