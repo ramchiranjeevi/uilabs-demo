@@ -32,6 +32,7 @@ Router.map(function() {
   this.route('datePicker');
 
   this.route('modal');
+  this.route('tab-selection');
 });
 
 export default Router;

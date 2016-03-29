@@ -1,0 +1,9 @@
+<div class="ui pointing menu">
+      {{#each header_obj as | item |}}
+          {{ header-tab tab_name = (mut item) update =(action 'updateDesc' item)}}
+      {{/each}}
+</div>
+
+<div class="ui segment">
+      {{ tab-content desc = selected_desc }}
+</div>
