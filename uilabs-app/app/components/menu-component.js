@@ -9,6 +9,7 @@ export default Ember.Component.extend( MenuMixin, {
   isShowSubMenu: false,
   childrenObj: [],
   temp_index: 1,
+  showId: '',
 
   //RECURSIVE CALLING FOR MENUITEM
 
@@ -113,10 +114,11 @@ export default Ember.Component.extend( MenuMixin, {
         self.send(enter_model.action);
         return;
       }
-      else{                 // //KEY BOARD NAVIGATION SUBMENU ACTION HANDLER
+      else{                  //KEY BOARD NAVIGATION SUBMENU ACTION HANDLER
+
         $("#"+enter_model.id+"_div").css("display","block");
-        target_id = $("#"+enter_model.id+"_div")[0].childNodes[1].childNodes[1].id;
-        temp_current_index = $("#"+enter_model.id+"_div")[0].childNodes[1].childNodes[1].tabIndex;
+        target_id = $("#" + enter_model.id + "_div")[0].children[0].children[0].children[0].id;
+        temp_current_index = $("#" + enter_model.id + "_div")[0].children[0].children[0].children[0].tabIndex;
         temp_model = self.get("childrenObj");
         $("#"+target_id).attr({ tabindex: temp_current_index});
         $("#"+target_id).focus();
@@ -132,44 +134,29 @@ export default Ember.Component.extend( MenuMixin, {
   // MOUSEMOVE EVENT ACTION HANDLER
 
   mouseMove(event){
-    //    event.stopPropagation();
+    event.stopPropagation();
     var self = this,
     $ = Ember.$,
-    targetId = event.target.id,
-    targetChildren = event.target.children,
-    targetParent = event.target.parentElement;
-    if(targetId.split('_').length !== 1 || targetParent.id.split('_').length !== 1){  //IF SUBMENU TARGETED
-      if(targetId === "")          //IF TARGETED ELEMENT IS CHILDREN
+    target_Parent = event.target.parentElement,
+    target_Id = target_Parent.id,
+    topX = event.clientY,
+    isChildren = event.target.parentElement.attributes["ischildren"],
+    isShowSubMenu = self.get("isShowSubMenu");
+    if(isChildren)     //IF PARENT HAS CHILDREN OBJ
+    {
+      if(target_Id.split("_").length === 2)   //IF SUBMENU TARGETED
       {
-        targetId = targetParent.id.split('_')[0];
+        $("#"+target_Id+"_div").css({'display': 'block'}); // No I18N
+        return;
       }
-      else {            //IF TARGETED ELEMENT IS PARENT
-        targetId = targetId.split('_')[0];
-      }
-      self.send("showSubMenu", targetId);
-    }
-    else {          //IF MENU TARGETED
-      if(targetId === "")   // IF TARGETED ELEMENT IS CHILDREN
+      if(isShowSubMenu && target_Id === self.get("showId"))   //FIX FOR TRIGGERING MOUSEMOVE
       {
-        targetParent = event.target.parentElement;
-        targetId = targetParent.id;
-        targetChildren = targetParent.children;
+        return;
       }
-      if(targetChildren.length === 4)   //IF TARGETED ELEMENT IS PARENT WHICH HAS CHILDREN OBJ
-      {
-        targetChildren = targetChildren[3].id.split('_')[0];
-        if(targetChildren === targetId)
-        {
-          self.send("showSubMenu", targetId);
-        }
-      }
-      else    //IF TARGETED ELEMENT IS PARENT WHICH HAS NO CHILDREN OBJ
-      {
-        if(targetChildren !== targetId)
-        {
-          $(".ui.vertical.menu.submenu").css({'display' : 'none'});
-        }
-      }
+      self.send("showSubMenu", target_Id);
+      $("#"+target_Id+"_div").css({'position':'absolute', 'top': topX - 20 , 'left': '254px', 'display': 'block'}); // No I18N
+      self.set("showId", target_Id);
+      self.set("isShowSubMenu", true);
     }
   },
 
