@@ -127,6 +127,17 @@ export default Ember.Component.extend( MenuMixin, {
     }
     target_model = temp_model[temp_current_index];
     target_id = target_model.id;
+    var isChildren = $("#"+target_id)[0].attributes["ischildren"];
+    var isShowSubMenu = self.get("isShowSubMenu");
+    if(isChildren)
+    {
+      var position = $("#"+target_id).position();
+      console.log(position);
+      self.send("showSubMenu", target_id);
+      $("#"+target_id+"_div").css({'position':'absolute', 'top': position.top , 'left': '254px', 'display': 'block'}); // No I18N
+      self.set("showId", target_id);
+      self.set("isShowSubMenu", true);
+    }
     $("#"+target_id).attr({ tabindex: temp_current_index});
     $("#"+target_id).focus();
   },
@@ -139,10 +150,17 @@ export default Ember.Component.extend( MenuMixin, {
     $ = Ember.$,
     target_Parent = event.target.parentElement,
     target_Id = target_Parent.id,
-    topX = event.clientY,
+    topY = event.clientY,
+    leftX = event.clientX,
     isChildren = event.target.parentElement.attributes["ischildren"],
     isShowSubMenu = self.get("isShowSubMenu");
-    if(isChildren)     //IF PARENT HAS CHILDREN OBJ
+    if(event.target.id)
+    {
+      target_Id = event.target.id;
+      var isSubMenu = $("#"+target_Id)[0].attributes["ischildren"];
+      $("#"+target_Id+"_div").css({'display': 'block'}); // No I18N
+    }
+    if(isChildren || isSubMenu)     //IF PARENT HAVE CHILDREN OBJ
     {
       if(target_Id.split("_").length === 2)   //IF SUBMENU TARGETED
       {
@@ -154,9 +172,12 @@ export default Ember.Component.extend( MenuMixin, {
         return;
       }
       self.send("showSubMenu", target_Id);
-      $("#"+target_Id+"_div").css({'position':'absolute', 'top': topX - 20 , 'left': '254px', 'display': 'block'}); // No I18N
+      $("#"+target_Id+"_div").css({'position':'absolute', 'top': topY - 20 , 'left': '254px', 'display': 'block'}); // No I18N
       self.set("showId", target_Id);
       self.set("isShowSubMenu", true);
+    }
+    else {  //IF PARENT HAVE NO CHILDREN OBJ
+      self.send("showSubMenu", target_Id);
     }
   },
 
