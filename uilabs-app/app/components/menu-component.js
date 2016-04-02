@@ -167,7 +167,7 @@ export default Ember.Component.extend( MenuMixin, {
     target_Parent = event.target.parentElement,
     target_id = target_Parent.id,
     topY = event.clientY,
-    leftX = event.clientX,
+  //  leftX = event.clientX,
     isChildren = event.target.parentElement.attributes["ischildren"],
     isShowSubMenu = self.get("isShowSubMenu");
     if(event.target.id)
