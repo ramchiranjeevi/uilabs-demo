@@ -34,15 +34,6 @@ export default Ember.Component.extend( MenuMixin, {
     var top_y = "20px";
     var left_x = "0px";
     var temp_index = self.get('temp_index');
-    // if(event.clientY !== undefined || event.clientX !== undefined)
-    // {
-    //   top_y = event.clientY;      //Have to get from contextmenu event handler
-    //   left_x = event.clientX;     //Have to get from contextmenu event handler
-    // }
-    // else{
-    //   top_y = "20px";
-    //   left_x = "0px";
-    // }
     self.get("menuObj").forEach(function (obj){
       temp_index = temp_index - 1;
       $("#"+obj.id).attr({ tabindex: temp_index});
@@ -90,7 +81,6 @@ export default Ember.Component.extend( MenuMixin, {
     {
       self.toggleProperty('isShowMenu');
     }
-    console.log($("#showmenudiv").position());
     $("#showmenudiv").css({'position':'absolute', 'top': top - 23 , 'left': left - 238, 'display': 'block'});
   },
 
@@ -159,8 +149,6 @@ export default Ember.Component.extend( MenuMixin, {
     {
       self.set("showId", '');    //RESET THE VALUE
     }
-    console.log(temp_current_index);
-    console.log(target_model.id);
     target_id = target_model.id;
     var isChildren = $("#"+target_id)[0].attributes["ischildren"],
     isShowSubMenu = self.get("isShowSubMenu"),
