@@ -1,11 +1,9 @@
-
 <div  class="ui vertical menu" id="showmenudiv">
   {{#if displayedItem}}
   {{#each displayedChildren as |displayedChild|}}
-  <a class="item" id ="{{displayedChild.id}}" isChildren={{displayedChild.isSubMenu}} tabindex="{{displayedChild.tab_index}}">
+  <a class="item" id ="{{displayedChild.id}}">
     <i class="{{displayedChild.icon}} menuitem"></i>
-    <div style="padding-left: 29px;">{{displayedChild.name}}</div>
-    <i class="{{displayedChild.arrowClass}} icon" style="margin-top: -11px;font-size: 10px;margin-right: 4px;color: grey;">{{displayedChild.type}}</i>
+    <i class="{{displayedChild.arrowClass}} icon"> {{displayedChild.type}}</i> {{displayedChild.name}}
   </a>
   {{/each}}
   {{/if}}
@@ -13,7 +11,7 @@
 
 {{#each displayedChildren as |displayedChild|}}
 {{#if displayedChild.children}}
-<div id="{{displayedChild.id}}_div" style="display:none;">
+<div id="{{displayedChild.id}}_div">
   {{menu-component menuNode=displayedChild.children}}
 </div>
 {{/if}}

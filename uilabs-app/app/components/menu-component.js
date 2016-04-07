@@ -42,6 +42,8 @@ export default Ember.Component.extend( MenuMixin, {
       if(obj.children.length !== 0)
       {
         self.get('childrenObj').addObject(Ember.Object.create(obj));
+        $("#"+obj.id+"_div").css({'display' : 'none'});
+        $("#"+obj.id).attr({ isChildren: obj.isSubMenu});
       }
     }, this);
     self.set("temp_index", 1);
