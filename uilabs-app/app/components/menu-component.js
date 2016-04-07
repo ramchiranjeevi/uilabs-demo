@@ -3,13 +3,18 @@ import MenuMixin from '../mixins/menumixin';
 
 export default Ember.Component.extend( MenuMixin, {
 
+  classNameBindings: ["menuList"],
+  displayedItem: true,
+  menuList: Ember.computed.alias('displayedItem'),
   menuObj: [],
   tabObj: [],
   subMenuObj : [],
+  isShowMenus: false,
   isShowSubMenu: false,
   childrenObj: [],
   temp_index: 1,
   showId: '',
+
 
   //RECURSIVE CALLING FOR MENUITEM
 
@@ -49,7 +54,7 @@ export default Ember.Component.extend( MenuMixin, {
       }
     }, this);
     self.set("temp_index", 1);
-    $('#showmenudiv').css({'margin-top': top_y , 'margin-left': left_x});
+    $('#showmenudiv').css({'top': top_y , 'left': left_x});
   },
 
   //CLICK EVENT ACTION HANDLER
@@ -69,6 +74,24 @@ export default Ember.Component.extend( MenuMixin, {
     {
       self.send(menuAction);
     }
+  },
+
+  //CONTEXTMENU EVENT ACTION HANDLER
+
+  contextMenu(event){
+    event.preventDefault();
+    event.stopPropagation();
+    var self = this,
+    $ = Ember.$;
+    var top = event.clientY;
+    var left = event.clientX;
+    var isShowMenus = self.get("isShowMenus");
+    if(!isShowMenus)
+    {
+      self.toggleProperty('isShowMenu');
+    }
+    console.log($("#showmenudiv").position());
+    $("#showmenudiv").css({'position':'absolute', 'top': top - 23 , 'left': left - 238, 'display': 'block'});
   },
 
   //KEYBOARD NAVIGATION FOR TABINDEX AND ACTION HANDLER
@@ -132,10 +155,18 @@ export default Ember.Component.extend( MenuMixin, {
       }
     }
     target_model = temp_model[temp_current_index];
+    if(temp_current_index === 0)
+    {
+      self.set("showId", '');    //RESET THE VALUE
+    }
+    console.log(temp_current_index);
+    console.log(target_model.id);
     target_id = target_model.id;
     var isChildren = $("#"+target_id)[0].attributes["ischildren"],
     isShowSubMenu = self.get("isShowSubMenu"),
-    target_pos = $("#"+target_id).position();
+    target_pos = $("#"+target_id).position(),
+    pos_menu = $("#showmenudiv").position(),
+    leftX = pos_menu.left + $("#showmenudiv").width();
     if(isChildren)
     {
       if(target_id.split("_").length === 2)   //IF SUBMENU TARGETED
@@ -148,7 +179,7 @@ export default Ember.Component.extend( MenuMixin, {
       }
       else {
 
-        self.send("setSubMenuPosition", target_id, target_pos.top);  //POSITIONING SUBMENU
+        self.send("setSubMenuPosition", target_id, target_pos.top, leftX );  //POSITIONING SUBMENU
       }
     }
     else {
@@ -167,7 +198,8 @@ export default Ember.Component.extend( MenuMixin, {
     target_Parent = event.target.parentElement,
     target_id = target_Parent.id,
     topY = event.clientY,
-  //  leftX = event.clientX,
+    pos_menu = $("#showmenudiv").position(),
+    leftX = pos_menu.left + $("#showmenudiv").width(),
     isChildren = event.target.parentElement.attributes["ischildren"],
     isShowSubMenu = self.get("isShowSubMenu");
     if(event.target.id)
@@ -189,7 +221,7 @@ export default Ember.Component.extend( MenuMixin, {
       }
       else
       {
-        self.send("setSubMenuPosition", target_id, topY - 20);  //POSITIONING SUBMENU
+        self.send("setSubMenuPosition", target_id, topY - 20, leftX);  //POSITIONING SUBMENU
       }
     }
     else {  //IF PARENT HAVE NO CHILDREN OBJ
@@ -215,12 +247,13 @@ export default Ember.Component.extend( MenuMixin, {
       }, this);
     },
 
-    setSubMenuPosition:function(toggleId, pos_top)
+    setSubMenuPosition:function(toggleId, pos_top, pos_left)
     {
       var self = this,
       $ = Ember.$;
+      self.$().children().closest($("#"+toggleId+"_div")).children().removeClass("menu-list");   //REMOVE MENU LIST CLASS FOR SUBMENU
       self.send("showSubMenu", toggleId);
-      $("#"+toggleId+"_div").css({'position':'absolute', 'top': pos_top , 'left': '254px', 'display': 'block'});
+      $("#"+toggleId+"_div").css({'position':'absolute', 'top': pos_top , 'left': pos_left, 'display': 'block'});
       self.set("showId", toggleId);
       self.set("isShowSubMenu", true);
     }

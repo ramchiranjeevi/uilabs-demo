@@ -1,4 +1,6 @@
+
 <div  class="ui vertical menu" id="showmenudiv">
+  {{#if displayedItem}}
   {{#each displayedChildren as |displayedChild|}}
   <a class="item" id ="{{displayedChild.id}}" isChildren={{displayedChild.isSubMenu}} tabindex="{{displayedChild.tab_index}}">
     <i class="{{displayedChild.icon}} menuitem"></i>
@@ -6,6 +8,7 @@
     <i class="{{displayedChild.arrowClass}} icon" style="margin-top: -11px;font-size: 10px;margin-right: 4px;color: grey;">{{displayedChild.type}}</i>
   </a>
   {{/each}}
+  {{/if}}
 </div>
 
 {{#each displayedChildren as |displayedChild|}}
