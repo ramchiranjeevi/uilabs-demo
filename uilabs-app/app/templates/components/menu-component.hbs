@@ -1,3 +1,8 @@
+{{#if isMoreMenu}}
+<div class="moremenudiv" {{action "showMoreMenu" post on="mouseUp"}} >Click Me</div>
+{{/if}}
+
+
 <div  class="ui vertical menu" id="showmenudiv">
   {{#if displayedItem}}
   {{#each displayedChildren as |displayedChild|}}
@@ -8,6 +13,7 @@
   {{/each}}
   {{/if}}
 </div>
+
 
 {{#each displayedChildren as |displayedChild|}}
 {{#if displayedChild.children}}

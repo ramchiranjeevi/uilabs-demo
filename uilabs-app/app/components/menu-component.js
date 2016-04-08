@@ -9,11 +9,14 @@ export default Ember.Component.extend( MenuMixin, {
   menuObj: [],
   tabObj: [],
   subMenuObj : [],
-  isShowMenus: false,
+  isShowMenus: true,
   isShowSubMenu: false,
+  isMoreMenu: false,
+  isShowMoreMenu: false,
   childrenObj: [],
   temp_index: 1,
   showId: '',
+
 
 
   //RECURSIVE CALLING FOR MENUITEM
@@ -55,12 +58,24 @@ export default Ember.Component.extend( MenuMixin, {
   click(event){
     event.stopPropagation();
     var self = this,
+    menuAction = "",
     tabIndex = "";
+    if(self.get("isShowMoreMenu"))
+    {
+      return;
+    }
     if(event.target.id === ""){
       tabIndex = event.target.parentElement.tabIndex;
     }
     else {
       tabIndex = event.target.tabIndex;
+    }
+    if(tabIndex === -1)
+    {
+      menuAction = "";
+      self.set("isMoreMenu", true);
+      $("#showmenudiv").css({'display' : 'none'});
+      return;
     }
     var menuAction = self.get('menuNode')[tabIndex].action;
     if(menuAction !== "")
@@ -78,11 +93,8 @@ export default Ember.Component.extend( MenuMixin, {
     $ = Ember.$;
     var top = event.clientY;
     var left = event.clientX;
-    var isShowMenus = self.get("isShowMenus");
-    if(!isShowMenus)
-    {
-      self.toggleProperty('isShowMenu');
-    }
+    self.set("isMoreMenu", false);
+    self.set("isShowMoreMenu", false);
     $("#showmenudiv").css({'position':'absolute', 'top': top - 23 , 'left': left - 238, 'display': 'block'});
   },
 
@@ -246,6 +258,14 @@ export default Ember.Component.extend( MenuMixin, {
       $("#"+toggleId+"_div").css({'position':'absolute', 'top': pos_top , 'left': pos_left, 'display': 'block'});
       self.set("showId", toggleId);
       self.set("isShowSubMenu", true);
+    },
+
+    showMoreMenu:function()
+    {
+      var self = this,
+      $ = Ember.$;
+      $("#showmenudiv").css({'position':'absolute', 'top': '198px' , 'left': '80px' , 'display': 'block'});
+      self.toggleProperty('isShowMoreMenu');
     }
   }
 });
