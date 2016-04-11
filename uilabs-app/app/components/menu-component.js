@@ -58,6 +58,7 @@ export default Ember.Component.extend( MenuMixin, {
   click(event){
     event.stopPropagation();
     var self = this,
+    $ = Ember.$,
     menuAction = "",
     tabIndex = "";
     if(self.get("isShowMoreMenu"))
@@ -77,7 +78,7 @@ export default Ember.Component.extend( MenuMixin, {
       $("#showmenudiv").css({'display' : 'none'});
       return;
     }
-    var menuAction = self.get('menuNode')[tabIndex].action;
+    menuAction = self.get('menuNode')[tabIndex].action;
     if(menuAction !== "")
     {
       self.send(menuAction);
