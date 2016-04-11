@@ -42,7 +42,7 @@ export default Ember.Component.extend( MenuMixin, {
       $("#"+obj.id).attr({ tabindex: temp_index});
       temp_index = self.get('temp_index') + 1;
       self.set("temp_index", temp_index);
-      if(obj.children.length !== 0)
+      if(obj.isSubMenu)   //If HAVING SUBMENU OR IS SUBMENU
       {
         self.get('childrenObj').addObject(Ember.Object.create(obj));
         $("#"+obj.id+"_div").css({'display' : 'none'});
