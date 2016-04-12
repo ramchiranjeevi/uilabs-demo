@@ -3,7 +3,7 @@
 
   {{#each model as |item|}}
     <a class="{{item.is_active}} item">
-      {{tab-name onClick=(action 'didTabChanged' item) tab_name=item.tab_name class=item.is_active}}
+      {{tab-name onClick=(action 'didTabChanged' item.tab_name) tab_name=item.tab_name class=item.is_active}}
     </a>
   {{/each}}
 

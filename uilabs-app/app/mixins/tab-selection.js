@@ -9,7 +9,7 @@ export default Ember.Mixin.create({
                                     'is_active': 'active',
                                     'visible': ''
                                   }),
-              Ember.Object.create({
+                Ember.Object.create({
                                     'tab_name': 'Font',
                                     'tab_component': 'font-menu',
                                     'is_active': '',

@@ -16,11 +16,7 @@ export default Ember.Route.extend(tabSelection, {
 
     showSettingsDialog( ) {
       CustomDialog.show( 'tabs-with-content', {'title': 'Page Setting'} );
-    },
-
-    hideSEttingsDialog () {
-      CustomDialog.hide( 'tabs-with-content' );
-    },
+    }
 
   }
 

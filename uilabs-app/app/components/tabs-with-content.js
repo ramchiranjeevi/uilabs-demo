@@ -8,18 +8,20 @@ export default Ember.Component.extend(tabSelection, {
   didInsertElement(){
     var self = this;
     self.set( 'model', self.get('modelObj') );
+    self.send('didTabChanged', 'Color');
    },
 
   actions:{
 
-    didTabChanged( obj ){
+    didTabChanged( menu ){
 
       var self = this,
-      activeObj = self.get('model').filterBy('is_active', 'active');
+      activeObj = self.get('model').filterBy('is_active', 'active')[0],
+      obj = self.get('model').filterBy( 'tab_name', menu )[0];
 
-      if ( activeObj[0] ){
-        activeObj[0].set('is_active', '');
-        activeObj[0].set('visible', 'hide');
+      if ( activeObj ){
+        activeObj.set('is_active', '');
+        activeObj .set('visible', 'hide');
       }
 
       obj.set('is_active', 'active');
