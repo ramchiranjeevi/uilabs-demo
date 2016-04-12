@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Mixin.create({
 
   pageStyles: {'bgcolor': 'grey', 'font': 'inherit'},
+  default_menu: 'Color',
   modelObj: [   Ember.Object.create({
                                     'tab_name': 'Color',
                                     'tab_component': 'color-menu',
