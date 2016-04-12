@@ -1,0 +1,16 @@
+
+<div class="ui secondary pointing menu">
+
+  {{#each model as |item|}}
+    <a class="{{item.is_active}} item">
+      {{tab-name onClick=(action 'didTabChanged' item) tab_name=item.tab_name class=item.is_active}}
+    </a>
+  {{/each}}
+
+</div>
+
+<div class="ui segment">
+  {{#each model as |item| }}
+    {{tab-content tab_component=item.tab_component class=item.visible }}
+  {{/each}}
+</div>

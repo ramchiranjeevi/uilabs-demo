@@ -1,4 +1,49 @@
+<div class="ts-container {{model.font}}">
 
-{{ parent-container model = model }}
+  <div class="ts-heading {{model.bgcolor}}">
+    <h2>
+      <div class="ui grid">
+        <div class="fourteen wide column"> Tab Selection </div>
+        <div class="two wide column">
 
-{{outlet}}
+          <button class='ui black basic button left floated' {{ action 'showSettingsDialog' }} >
+            <i class='setting icon'></i> Setting
+          </button>
+
+        </div>
+      </div>
+
+    </h2>
+    <span> ( Click Setting option to change the page styles. ) </span>
+  </div>
+
+  <hr>
+
+  <div class="ui list">
+
+    <h5>Setting Dialog :</h5>
+    <div class="item">
+      <div class="ui bulleted list">
+        <div class="item">Page theme and font settings.</div>
+      </div>
+    </div>
+
+
+    <h5>Functionlity :</h5>
+    <div class="item">
+      <div class="ui bulleted list">
+        <div class="item">Closur actions and Dialog ( addon component ) are used.</div>
+      </div>
+    </div>
+
+
+    <h5>UI Styles :</h5>
+    <div class="item">
+      <div class="ui bulleted list">
+        <div class="item">Semantic UI.</div>
+      </div>
+    </div>
+  </div>
+
+  {{outlet}}
+</div>

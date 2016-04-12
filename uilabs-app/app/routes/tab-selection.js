@@ -1,14 +1,27 @@
 import Ember from 'ember';
+import CustomDialog from '../utils/custom-dialog';
+import tabSelection from '../mixins/tab-selection';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(tabSelection, {
+
+  styles: {},
 
   model(){
+    var self = this;
+    self.set('styles', this.get('pageStyles'));
+    return self.get('styles');
+  },
 
-    var mvc_obj = Ember.Object.create({'Model': 'The model directly manages the data, logic and rules of the application.'},
-                    {'View': 'A view can be any output representation of information, such as a chart or a diagram. Multiple views of the same information are possible, such as a bar chart for management and a tabular view for accountants.'},
-                    {'Controller': 'The third part, the controller, accepts input and converts it to commands for the model or view.'});
+  actions:{
 
-    return mvc_obj;
+    showSettingsDialog( ) {
+      CustomDialog.show( 'tabs-with-content', {'title': 'Page Setting'} );
+    },
+
+    hideSEttingsDialog () {
+      CustomDialog.hide( 'tabs-with-content' );
+    },
+
   }
 
 });

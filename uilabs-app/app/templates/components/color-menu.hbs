@@ -1,0 +1,17 @@
+
+<div class="ui radio checkbox">
+  <input type="radio" name="color" checked={{colors.white}} onClick={{action 'changeColor' 'white'}}>
+  <label> White </label>
+</div>
+
+<div class="ui radio checkbox">
+  <input type="radio" name="color" checked={{colors.grey}} onClick={{action 'changeColor' 'grey'}}>
+  <label> Light grey </label>
+</div>
+
+<div class="ui radio checkbox">
+  <input type="radio" name="color" checked={{colors.teal}} onClick={{action 'changeColor' 'teal'}}>
+  <label> Teal </label>
+</div>
+
+{{yield}}
