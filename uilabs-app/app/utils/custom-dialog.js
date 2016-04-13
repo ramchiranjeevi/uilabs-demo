@@ -10,7 +10,7 @@ export default Ember.Object.create({
         let options = $.extend({
 
             // continer property defined by initializer...
-            container: this.get("container"),
+            // container: this.get("container.owner"),
 
             // Layout which will be loaded inside of the dialog...
             innerLayout: innerLayout
@@ -18,7 +18,7 @@ export default Ember.Object.create({
         }, dialogOptions);  // Extending with custom option for dialog...
 
         const dialog = new CustomDialogModal();
-
+        Ember.setOwner( dialog, this.get('container.owner') );	//No I18N
         dialog.setProperties( options );
         dialog.append();
 

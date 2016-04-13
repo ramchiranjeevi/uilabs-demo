@@ -1,7 +1,7 @@
 import ModalDialogUtil from '../utils/custom-dialog';
 import ProgressBarUtil from '../utils/progressbar';
 
-export function initialize(container, app) {
+export function initialize(app) {
     ModalDialogUtil.reopen({
         container: app.__container__
     });
