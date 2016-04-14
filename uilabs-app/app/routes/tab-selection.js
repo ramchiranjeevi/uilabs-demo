@@ -8,15 +8,15 @@ export default Ember.Route.extend(tabSelection, {
 
   model(){
     var self = this;
-    self.set('styles', this.get('pageStyles'));
-    this.set('default_menu', 'Font');
+    self.set('styles', self.get('pageStyles'));
+    self.set('default_menu', 'Font');
     return self.get('styles');
   },
 
   actions:{
 
     showSettingsDialog() {
-        CustomDialog.show( 'tabs-with-content', {'title': 'Page Setting'} );
+        CustomDialog.show( 'tabs-with-content' , {'title': 'Page Setting'} );
     }
 
   }

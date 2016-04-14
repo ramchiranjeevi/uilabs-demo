@@ -1,0 +1,1 @@
+export { default } from 'uilabs-addon/components/ui-tab-name';

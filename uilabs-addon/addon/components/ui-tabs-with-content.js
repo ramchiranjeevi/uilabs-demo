@@ -1,14 +1,16 @@
 import Ember from 'ember';
-import tabSelection from '../mixins/tab-selection';
+import layout from '../templates/components/ui-tabs-with-content';
 
-export default Ember.Component.extend(tabSelection, {
-
-  model: {},
+export default Ember.Component.extend({
+  layout: layout,
+  model:{},
+  default_menu: '',
 
   didInsertElement(){
     var self = this;
-    self.set( 'model', self.get('modelObj') );
-    self.send('didTabChanged', self.get('default_menu'));
+    Ember.run.later(() => {
+      self.send('didTabChanged', self.get('default_menu'));
+    });
    },
 
   actions:{
@@ -20,14 +22,14 @@ export default Ember.Component.extend(tabSelection, {
       obj = menu === '' ? self.get('model')[0] : self.get('model').filterBy( 'tab_name', menu )[0];
       obj = obj === undefined ? self.get('model')[0] : obj;
 
-      if ( activeObj ){
+      if ( activeObj )
+      {
         activeObj.set('is_active', '');
-        activeObj .set('visible', 'hide');
+        activeObj.set('visible', 'hide');
       }
 
       obj.set('is_active', 'active');
       obj.set('visible', '');
-
     }
 
   }
